@@ -1,24 +1,30 @@
-# README
+# **静岡旅行**
+https://e5ece748ba0b43fa9ce9117784b2569c.vfs.cloud9.ap-northeast-1.amazonaws.com
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+（遊ぶ・食べる・観る）３点の観光情報が閲覧できるサイト
 
-Things you may want to cover:
+### ｛テーマを選んだ理由｝
+　以前のように気軽に外出できるようになった時、静岡に行きたいと思ってもらえるようなサイトを作成したいと思い、制作致しました。
+　現在はコロナの影響で外出を控え、観光客が減少している状況です。おうち時間、携帯を触る時間が多くなっているので、このサイトを見て、静岡の魅力を知ってもらい、興味を持ってもらえたら幸いです。
+### ｛ターゲットユーザー｝
+* コロナが収まってから旅行を考えている人
+* 静岡県民
 
-* Ruby version
+### {主な利用シーン}
+* 旅行先を考えている時
+* 静岡に旅行に来て時間が余った時
+* 大まかな旅行計画を作成したいとき
 
-* System dependencies
+## 設計書
+（URL出来次第追加）
 
-* Configuration
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1u7W90IQV-wg7iDeyYTsp6x_uf0a-QkGg38Ry8Y9_SG8/edit#gid=0
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9

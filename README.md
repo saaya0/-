@@ -19,7 +19,7 @@
 ### 主な利用シーン
 * 旅行先を考えている時
 * 静岡に旅行に来て時間が余った時
-* 大まかな旅行計画を作成したいとき
+* 気になっている観光地をマークしておきたい時
 
 ## 設計書
 
@@ -27,6 +27,8 @@
 https://app.diagrams.net/#G1OqO9zTwfH4Ulz5XQc04F0u4KzmQX6K6G
 ### フレームワーク
 https://app.diagrams.net/#G1JRLJY-554hh-V5xNMDBEkM_3OxMxgOt4
+### 画面遷移図
+https://app.diagrams.net/#G1wBpIJ7id3mrXwtoVdMKAQZfmFEJohGP4
 ### テーブル定義書
 https://docs.google.com/spreadsheets/d/1YQqup4lgxguUwuRv1b9He474Q4RlKpsoDrHfdxwbbTw/edit#gid=856357510
 ### アプリケーション詳細設計書

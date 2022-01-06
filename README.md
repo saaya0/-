@@ -23,13 +23,13 @@
 
 ## 設計書
 
-###ER図
+### ER図
 https://app.diagrams.net/#G1OqO9zTwfH4Ulz5XQc04F0u4KzmQX6K6G
-###フレームワーク
+### フレームワーク
 https://app.diagrams.net/#G1JRLJY-554hh-V5xNMDBEkM_3OxMxgOt4
-###テーブル定義書
+### テーブル定義書
 https://docs.google.com/spreadsheets/d/1YQqup4lgxguUwuRv1b9He474Q4RlKpsoDrHfdxwbbTw/edit#gid=856357510
-###アプリケーション詳細設計書
+### アプリケーション詳細設計書
 https://docs.google.com/spreadsheets/d/1J1SqgJvUQm0jYKokIa98Uwz-lKrf-ZpTosoaE-6yap0/edit#gid=2133469642
 
 ## チャレンジ要素一覧

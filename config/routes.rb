@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   scope module: :admin do
     resources :spots
-    resource :users,only: [:inde] do
+    resources :users,only: [:index] do
   		collection do
   	     patch 'out'
   	  end
@@ -24,9 +24,10 @@ Rails.application.routes.draw do
   root 'user/homes#top'
 
   scope module: :user do
-    resources :spots,only: [:index,:show,]
-    get 'spot' => 'spots#favorite'
-    get 'spot' => 'spots#sarch'
+    get 'index' => 'spots#index'
+    get 'show' => 'spots#show'
+    get 'favorite' => 'spots#favorite'
+    get 'sarch' => 'spots#sarch'
 
   	resource :users,only: [:show,:update] do
   		collection do

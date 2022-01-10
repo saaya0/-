@@ -10,13 +10,7 @@
   </head>
 
   <body>
-      <% unless current_page?(root_path) %><%# unlessで現在のﾍﾟｰｼﾞがﾄｯﾌﾟﾍﾟｰｼﾞであれば非表示になる%>
-      <% unless current_page?(new_user_session_path) %>
-      <% unless current_page?(new_user_registration_path) %>
-      <% unless current_page?(new_admin_session_path) %>
-        <%= render "layouts/header" %>
-      <% end %>
-    </div>
+    <%= render "layouts/header" %>
     <%= yield %>
   </body>
 </html>

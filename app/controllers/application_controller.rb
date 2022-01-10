@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  #before_action :set_header
+  before_action :set_header
   def top; end
 
 

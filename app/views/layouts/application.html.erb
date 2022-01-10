@@ -12,7 +12,7 @@
   <body>
     <% @paths.each do |path| %>
       <% if current_page?(path) %>
-        <% @is_header = false %>
+        <% @header = false %>
       <% end %>
     <% end %>
     <% if @header %>

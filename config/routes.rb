@@ -1,21 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :admin, skip: [:registrations, :passwords] , controllers: {
-    sessions: "admin/sessions"
-  }
-
-  scope module: :admin do
-    resources :spots
-    resources :users,only: [:index] do
-  		collection do
-  	     patch 'out'
-  	  end
-  	end
-  end
-
-
-
-    devise_for :users,skip: [:passwords,], controllers: {
+    devise_for :admin
+  
+    devise_for :users, controllers: {
     registrations: "user/registrations",
     sessions: 'user/sessions'
   }

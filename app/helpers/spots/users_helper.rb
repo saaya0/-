@@ -1,0 +1,2 @@
+module Spots::UsersHelper
+end

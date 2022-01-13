@@ -1,0 +1,20 @@
+<h4>新規投稿</h4>
+<%= form_with　model:@spot) do |f| %>
+
+  <%= f.label :spot_name %>
+  <%= f.text_field :spot_name %>
+
+  <%= f.label :post_code %>
+  <%= f.text_field :post_code %>
+
+  <%= f.label :address %>
+  <%= f.text_field :adress %>
+
+  <%= f.label :spot_text %>
+  <%= f.text_area :spot_text %>
+
+  <%= f.label :spot_img %>
+  <%= f.text_field :spot_img %>
+  <%= f.submit '投稿' %>
+<% end %>
+

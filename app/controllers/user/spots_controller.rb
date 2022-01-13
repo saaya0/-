@@ -7,7 +7,7 @@ class User::SpotsController < ApplicationController
   def create
     @spot = Spot.new
     @spot.save
-    redirect_to show_path(@spot)
+    redirect_to spot_path(@spot)
 
   end
 

@@ -4,8 +4,9 @@
     <title>ShizuokaTrip</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= include_gon %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/6dd6968c0b.js" crossorigin="anonymous"></script>
   </head>
@@ -21,6 +22,6 @@
     <% end %>
     <%= yield %>
 
-    
+
   </body>
 </html>

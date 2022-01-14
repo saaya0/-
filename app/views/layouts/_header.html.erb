@@ -1,52 +1,68 @@
-<div class="col-2">
-  <%=link_to image_tag("logo.jfif"), spots_path %>
-</div>
-
-<% if user_signed_in? %><%# もし会員がﾛｸﾞｲﾝしていれば %>
-  <div class="col-4">
-    ようこそ<%=link_to "#{current_user.name}", user_path(current_user) %>さん！
-  </div>
-  <div class="col-6">
-    <%= link_to spots_path do %>
-      MAP<i class="fas fa-map-marked-alt"></i>
+<nav>
+  <ul> 
+    <li>
+      静岡観光地情報
+    </li>
+    
+    <% if user_signed_in? %><%# もし会員がﾛｸﾞｲﾝしていれば %>
+      <li>
+        ようこそ<%=link_to "#{current_user.name}", user_path(current_user) %>さん！
+      </li>
+      <li>
+        <%= link_to spots_path do %>
+          MAP<i class="fas fa-map-marked-alt"></i>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to spots_favorite_path do %>
+          FAVORITE<i class="fas fa-star"></i>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to spots_sarch_path do %>
+          SARCH<i class="fas fa-search"></i>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          LOG OUT<i class="fas fa-sign-out-alt"></i>
+        <% end %>
+      </li>
+    <% elsif admin_signed_in? %><%# もし管理者がﾛｸﾞｲﾝしていれば %>
+      <ぃ
+        あなたは管理者です
+      </li>>
+      <li>
+        <%= link_to spots_path do %>
+          <i class="fas fa-map-marked-alt"></i>
+          <span>MAP</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to users_path do %>
+          <i class="fas fa-users"></i>
+          <span>USER</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to spots_path do %>
+          <i class="fas fa-sign-out-alt"></i>
+          <span>LOGOUT</span>
+        <% end %>
+      </li>
+    <% else %><%# 誰もﾛｸﾞｲﾝしていなければ %>
+      <li>
+        <%= link_to new_user_registration_path do %>
+          <i class="fas fa-user-plus"></i>
+          <span>SIGN UP</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_user_session_path do %>
+          <i class="fas fa-sign-in-alt"></i>
+          <span>SIGN IN</span>
+        <% end %>
+      </li>
     <% end %>
-    <%= link_to spots_favorite_path do %>
-      FAVORITE<i class="fas fa-star"></i>
-    <% end %>
-    <%= link_to spots_sarch_path do %>
-      SARCH<i class="fas fa-search"></i>
-    <% end %>
-    <%= link_to destroy_user_session_path, method: :delete do %>
-      LOG OUT<i class="fas fa-sign-out-alt"></i>
-    <% end %>
-    </div>
-  <% elsif admin_signed_in? %><%# もし管理者がﾛｸﾞｲﾝしていれば %>
-    <div class="col-4">
-      ようこそ<%=　current_@user.name %>さん！
-    </div>
-    <div class="col-6">
-      <%= link_to spots_path do %>
-        <i class="fas fa-map-marked-alt"></i>
-        <span>MAP</span>
-      <% end %>
-      <%= link_to users_path do %>
-        <i class="fas fa-users"></i>
-        <span>USER</span>
-      <% end %>
-      <%= link_to spots_path do %>
-        <i class="fas fa-sign-out-alt"></i>
-        <span>LOGOUT</span>
-      <% end %>
-    <% else %>　　　　　　　　　　<%# 誰もﾛｸﾞｲﾝしていなければ %>
-      <%= link_to new_user_registration_path do %>
-        <i class="fas fa-user-plus"></i>
-        <span>SIGN UP</span>
-      <% end %>
-      <%= link_to new_user_session_path do %>
-        <i class="fas fa-sign-in-alt"></i>
-        <span>SIGN IN</span>
-      <% end %>
-    </div>
-  <% end %>
-</header>
-
+  </ul>
+</nav>

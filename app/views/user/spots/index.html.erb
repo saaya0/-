@@ -4,15 +4,36 @@
 <style>
 #map{
   height: 400px;
+  width: 80%;
 }
 </style>
 
 <script>
+
+let map;
+
 function initMap(){
-  let map = new google.maps.Map(document.getElementById('map'), {
-  center: {lat: -34.397, lng: 150.644},
-  zoom: 8
+  
+  geocoder = new google.maps.Geocoder()
+  
+  map = new google.maps.Map(document.getElementById('map'), {
+  center: {lat: 34.97171938, lng: 138.3879278},
+  zoom: 9.3
   });
+  
+  marker = new google.maps.Marker({
+    pasition: {
+      lat: gon.spot.latitude,
+      lng: gon.user.longtude
+    },
+    map: map
+  })
 }
+
+
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API']%>&callback=initMap" async defer></script>
+
+<%= link_to "観光地の追加をする", new_spot_path, class: "btn btn-secondary" %>
+
+<h5>kk</h5>

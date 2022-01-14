@@ -25,5 +25,8 @@ class ApplicationController < ActionController::Base
     @header = true
     @paths = [root_path, new_user_session_path, new_user_registration_path, new_admin_session_path]
   end
-
+  
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:spot, keys: [:address])
+  end
 end

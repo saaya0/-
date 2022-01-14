@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_13_063420) do
+ActiveRecord::Schema.define(version: 2022_01_14_050106) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2022_01_13_063420) do
     t.string "business_hour"
     t.string "parking"
     t.string "spot_text", null: false
-    t.string "spot_img", null: false
+    t.string "spot_img_id", null: false
     t.boolean "whether_status", default: false, null: false
     t.boolean "genre_status", default: false, null: false
     t.datetime "created_at", null: false

@@ -5,14 +5,15 @@ class User::SpotsController < ApplicationController
   end
 
   def create
-    @spot = Spot.new
+    @spot = Spot.new(spot_params)
     @spot.save
-    redirect_to spot_path(@spot)
+    redirect_to spots_path
 
   end
 
   def index
     @spots = Spot.all
+    gon.user = @user
   end
 
   def show
@@ -29,7 +30,7 @@ class User::SpotsController < ApplicationController
   private
 
   def spot_params
-    params.require(:spot).permit(:spot_name, :post_code, :adress, :business_day, :business_hour, :parking, :spot_text, :spot_img, :latitude, :longitude)
+    params.require(:spot).permit(:spot_name, :post_code, :address, :business_day, :business_hour, :parking, :spot_text, :spot_img, :latitude, :longitude)
   end
 
 end

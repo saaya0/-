@@ -1,0 +1,25 @@
+<h4>投稿編集</h4>
+<%= form_with model:@spot, url:{action: "update"}, local:true do |f| %>
+
+  <li>
+    <%= f.label :観光地名 %>
+    <%= f.text_field :spot_name %>
+  </li>
+  <li>
+    <%= f.label :post_code %>
+    <%= f.text_field :post_code %>
+  </li>
+  <li>
+    <%= f.label :address %>
+    <%= f.text_field :address, class: 'from-control' %>
+  </li>
+  <li>
+    <%= f.label :spot_text %>
+    <%= f.text_area :spot_text %>
+  </li>
+  <li>
+    <%= f.label :観光地画像 %>
+    <%= f.attachment_field :spot_img %>
+  </li>
+  <%= f.submit '保存' %>
+<% end %>

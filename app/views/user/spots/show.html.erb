@@ -1,3 +1,31 @@
 <h4>観光地詳細</h4>
 
-<%= image_tag attachment_url(@spot, :spot_img, :fil, :300, :300, format ':jpg') %>
+<h5>観光地名</h5>
+<p><%= @spot.spot_name %> </p>
+<h5>観光地画像</h5>
+<%= attachment_image_tag @spot, :spot_img, :fill, 100, 100, format: 'jpeg' %>
+<h5>観光地住所</h5>
+<p><%= @spot.post_code %></p>
+<p><%= @spot.address %></p>
+<h5>説明</h5>
+<p><%= @spot.spot_text %></p>
+<h5>営業</h5>
+<p><%= @spot.business_day %></p>
+<p><%= @spot.business_hour %></p>
+
+<%= link_to "編集", edit_spot_path(@spot) %>
+
+<div>
+<p>コメント件数：<%= @spot.comments.count %></p>
+<% @spot.comments.each do |comment| %>
+  <p><%= image_tag('sample-author1.jpg') %></p>
+  <%= comments.user.name %>
+  <%= comments.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+<% end %>
+</div>
+<div>
+<%= form_with model:[@spot, @comment], method: :post do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+  <%= f.submit "送信する" %>
+<% end %>
+</div>

@@ -20,14 +20,19 @@ function initMap(){
   center: {lat: 34.97171938, lng: 138.3879278},
   zoom: 9.3
   });
-  
+  console.log(gon.spot.latitude);
+  console.log(gon.spot.longitude);
+  <% @spots.each  do | spot| %>
+    <% if spot.latitude && spot.longitude %>
   marker = new google.maps.Marker({
-    pasition: {
-      lat: gon.spot.latitude,
-      lng: gon.user.longtude
-    },
+//    position: new google.maps.LatLng(gon.spot.latitude, gon.spot.longitude ),
+     position: new google.maps.LatLng(<%= spot.latitude %>, <%= spot.longitude %>),
     map: map
-  })
+  });
+    <% end %>
+  <% end %>
+  
+  map.setCenter( new  google.maps.LatLng(gon.spot.latitude, gon.spot.longitude));
 }
 
 

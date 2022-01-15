@@ -1,11 +1,11 @@
 <nav>
   <ul> 
-    <li>
+    <div>
       静岡観光地情報
-    </li>
+    </div>
     
     <% if user_signed_in? %><%# もし会員がﾛｸﾞｲﾝしていれば %>
-      <li>
+      <li class="name-link">
         ようこそ<%=link_to "#{current_user.name}", user_path(current_user) %>さん！
       </li>
       <li>

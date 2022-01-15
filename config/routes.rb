@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   scope module: :user do
 
-    resources :spots
+    resources :spots do
+      resources :comments, only: [:create,:destroy]
+    end
     get 'spots/favorite' => 'spots#favorite'
     get 'spots/sarch' => 'spots#sarch'
 

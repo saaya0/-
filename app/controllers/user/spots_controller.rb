@@ -13,7 +13,8 @@ class User::SpotsController < ApplicationController
 
   def index
     @spots = Spot.all
-    gon.user = @user
+   #gon.spot = @spot
+   gon.spot = Spot.last
   end
 
   def show
@@ -21,6 +22,13 @@ class User::SpotsController < ApplicationController
   end
 
   def edit
+    @spot = Spot.find(params[:id])
+  end
+  
+  def update
+    @spot = Spot.find(params[:id])
+    @spot.update(spot_params)
+    redirect_to spot_path(@spot)
   end
 
   def destroy

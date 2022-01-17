@@ -15,6 +15,7 @@ class User::SpotsController < ApplicationController
     @spots = Spot.all
    #gon.spot = @spot
    gon.spot = Spot.last
+   gon.spots = Spot.all
   end
 
   def show

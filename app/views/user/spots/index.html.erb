@@ -11,30 +11,49 @@
 <script>
 
 let map;
+let marker = [];
+let infoWindow = [];
+let count = 0;
 
 function initMap(){
-  
+
   geocoder = new google.maps.Geocoder()
-  
+
   map = new google.maps.Map(document.getElementById('map'), {
   center: {lat: 34.97171938, lng: 138.3879278},
   zoom: 9.3
-  });
-  console.log(gon.spot.latitude);
-  console.log(gon.spot.longitude);
+  });  //マップ表示場所とサイズ指定
+  console.log(gon.spot.latitude);　//経緯
+  console.log(gon.spot.longitude);　//緯度
+
   <% @spots.each  do | spot| %>
     <% if spot.latitude && spot.longitude %>
-  marker = new google.maps.Marker({
-//    position: new google.maps.LatLng(gon.spot.latitude, gon.spot.longitude ),
-     position: new google.maps.LatLng(<%= spot.latitude %>, <%= spot.longitude %>),
-    map: map
-  });
+      marker[count] = new google.maps.Marker({
+      //position: new google.maps.LatLng(gon.spot.latitude, gon.spot.longitude ),
+         position: new google.maps.LatLng(<%= spot.latitude %>, <%= spot.longitude %>),
+        map: map
+      });　//登録した観光地のマーカー
+
+      //map.setCenter( new  google.maps.LatLng(gon.spot.latitude, gon.spot.longitude));
+
+      infoWindow[count] = new google.maps.InfoWindow({
+        content: `<%= link_to "#{spot.spot_name}", spot_path(spot) %>`
+      });　// infoWindowは吹き出し、観光地名をだす
+      
+      count++;
     <% end %>
   <% end %>
-  
-  map.setCenter( new  google.maps.LatLng(gon.spot.latitude, gon.spot.longitude));
+
+  for (var i = 0; i < count; i++) {
+    markerEvent(i)
+  }
 }
 
+  function markerEvent(i) {
+    marker[i].addListener('click', function () {
+      infoWindow[i].open(map, marker[i]);
+    });
+  }
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API']%>&callback=initMap" async defer></script>

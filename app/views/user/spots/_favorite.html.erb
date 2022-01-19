@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <% if spot.favorited_by?(current_user) %>
-    <%=link_to spot_favorite_path(spot_id: spot.id, id: spot.id), method: :delete do %>
+    <%=link_to spot_favorites_path(spot_id: spot.id, id: spot.id), method: :delete do %>
       お気に入り登録済
       <%= spot.favorites.count %>
     <% end %>

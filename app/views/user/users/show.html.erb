@@ -15,3 +15,14 @@
 <% end %>
 <%= link_to "favorite", favorite_path, class: "btn btn-secondary" %>
 <%= link_to "退会", confirm_unsubscribe_path(@user), class: "btn btn-secondary" %>
+
+<h4>お気に入り</h4>
+<% if @favotite_list.present? %>
+  <% if @favorite_list.each do |spot| %>
+    <%= spot.name %>
+    <%= image_tag spot.spot_img %>
+  <% end %>
+<% else %>
+お気に入りをしておりません。
+観光地の詳細ページからお気に入りが出来ます。
+<% end %>

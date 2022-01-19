@@ -5,7 +5,8 @@ class User::SpotsController < ApplicationController
   end
 
   def create
-    @spot = Spot.new(spot_params)
+    converted_params = spot_params.merge({user_id: current_user.id})
+    @spot = Spot.new(converted_params)
     @spot.save
     redirect_to spots_path
   end
@@ -17,6 +18,7 @@ class User::SpotsController < ApplicationController
    gon.spots = Spot.all
   end
 
+
   def show
     @spot = Spot.find(params[:id])
     @comment = Comment.new
@@ -25,7 +27,7 @@ class User::SpotsController < ApplicationController
   def edit
     @spot = Spot.find(params[:id])
   end
-  
+
   def update
     @spot = Spot.find(params[:id])
     @spot.update(spot_params)
@@ -37,6 +39,15 @@ class User::SpotsController < ApplicationController
     @spot.destroy
     redirect_to spots_path
   end
+
+  def favorite
+    @user = User.find(current_user.id)
+    @spots = @user.spots
+    p "@spots"
+    p @spots
+    spot_ids = Favorite.where(user_id: current_user.id).pluck(:spot_id)
+  end
+
 
 
   private

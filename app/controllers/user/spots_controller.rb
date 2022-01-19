@@ -8,7 +8,6 @@ class User::SpotsController < ApplicationController
     @spot = Spot.new(spot_params)
     @spot.save
     redirect_to spots_path
-
   end
 
   def index
@@ -20,6 +19,7 @@ class User::SpotsController < ApplicationController
 
   def show
     @spot = Spot.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit
@@ -33,6 +33,9 @@ class User::SpotsController < ApplicationController
   end
 
   def destroy
+    @spot = Spot.find(params[:id])
+    @spot.destroy
+    redirect_to spots_path
   end
 
 

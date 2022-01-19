@@ -14,17 +14,23 @@
 <p><%= @spot.business_hour %></p>
 
 <%= link_to "編集", edit_spot_path(@spot) %>
+<%= link_to "削除", spot_path(@spot), method: :delete, "data-comfirm" => "本当に削除しますか" %>
 
 <div>
 <p>コメント件数：<%= @spot.comments.count %></p>
 <% @spot.comments.each do |comment| %>
-  <p><%= image_tag('sample-author1.jpg') %></p>
-  <%= comments.user.name %>
-  <%= comments.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+  <p><%= comment.comment_img %></p>
+  <%= comment.user.name %>
+  <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+  <% if comment.user == current_user %>
+  <div>
+    <%= link_to "コメント削除", spot_comment_path(comment.spot, comment), method: :delete %>
+  </div>
+  <% end %>
 <% end %>
 </div>
 <div>
-<%= form_with model:[@spot, @comment], method: :post do |f| %>
+<%= form_with(model:[@spot, @comment], local: true) do |f| %>
   <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
   <%= f.submit "送信する" %>
 <% end %>

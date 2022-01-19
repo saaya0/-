@@ -1,9 +1,9 @@
 <nav>
-  <ul> 
+  <ul>
     <div>
       静岡観光地情報
     </div>
-    
+
     <% if user_signed_in? %><%# もし会員がﾛｸﾞｲﾝしていれば %>
       <li class="name-link">
         ようこそ<%=link_to "#{current_user.name}", user_path(current_user) %>さん！
@@ -14,9 +14,7 @@
         <% end %>
       </li>
       <li>
-        <%= link_to spots_favorite_path do %>
           FAVORITE<i class="fas fa-star"></i>
-        <% end %>
       </li>
       <li>
         <%= link_to spots_sarch_path do %>
@@ -29,9 +27,6 @@
         <% end %>
       </li>
     <% elsif admin_signed_in? %><%# もし管理者がﾛｸﾞｲﾝしていれば %>
-      <ぃ
-        あなたは管理者です
-      </li>>
       <li>
         <%= link_to spots_path do %>
           <i class="fas fa-map-marked-alt"></i>

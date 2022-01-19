@@ -13,6 +13,11 @@
 <p><%= @spot.business_day %></p>
 <p><%= @spot.business_hour %></p>
 
+
+<div class= "favorite" id="spot_<% @spot.id %>">
+ <%= render "user/spots/favorite", spot: @spot %>
+</div>
+
 <%= link_to "編集", edit_spot_path(@spot) %>
 <%= link_to "削除", spot_path(@spot), method: :delete, "data-comfirm" => "本当に削除しますか" %>
 

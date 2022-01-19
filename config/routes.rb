@@ -14,16 +14,19 @@ Rails.application.routes.draw do
 
     resources :spots do
       resources :comments, only: [:create,:destroy]
-     
+      resources :favorites, only: [:create, :destroy]
     end
     get 'spots/sarch' => 'spots#sarch'
-
+    
 
     get 'users/:id/unsubscribe' => 'users#unsubscribe', as: 'confirm_unsubscribe'
     patch 'users/:id/withdraw' => 'users#withdraw', as: 'withdraw_user'
     put 'withdraw/:id' => 'users#withdraw'
 
-  	resources :users,only: [:show,:update]
+  	resources :users,only: [:show,:update] do
+  	  get :favorites, on: :collection
+  	end
+  	
 
   end
 end

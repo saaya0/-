@@ -5,7 +5,7 @@ class User::SpotsController < ApplicationController
   end
 
   def create
-    converted_params = spot_params.merge({user_id: current_user.id})
+    converted_params = spot_params.merge({user_id: current_user.id}) #観光地登録者のユーザー登録
     @spot = Spot.new(converted_params)
     @spot.save
     redirect_to spots_path
@@ -41,11 +41,10 @@ class User::SpotsController < ApplicationController
   end
 
   def favorite
-    @user = User.find(current_user.id)
+    @user = current_user
     @spots = @user.spots
-    p "@spots"
-    p @spots
-    spot_ids = Favorite.where(user_id: current_user.id).pluck(:spot_id)
+    favorites = Favorite.where(user_id: current_user.id).pluck(:spot_id)
+    @favorite_list = Spot.find(favorites)
   end
 
 

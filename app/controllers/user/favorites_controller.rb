@@ -2,8 +2,6 @@ class User::FavoritesController < ApplicationController
   before_action :set_spot
 
   def create
-    p @spot.user_id
-    p current_user.id
     if @spot.user_id != current_user.id #もしも観光地投稿者がﾛｸﾞｲﾝユーザーでなければ
       @favorite = Favorite.create(user_id: current_user.id, spot_id: params[:spot_id])
       @favorite.save

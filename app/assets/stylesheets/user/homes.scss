@@ -1,3 +1,28 @@
 // Place all the styles related to the user/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.fa-angle-left {
+  font-size: 50px;
+  // 絶対配置から位置を決める
+  position: absolute;
+  z-index: 100;
+  left: 30px;
+  top: 230px;
+  color: gray;
+}
+
+.fa-angle-right {
+  font-size: 50px;
+  // 絶対配置から位置を決める
+  position: absolute;
+  z-index: 100;
+  right: 30px;
+  top: 230px;
+  color: gray;
+}
+// ドットのデザイン
+.slick-dots{
+  color: rgb(116, 116, 116);
+  font-size: 50px;
+}

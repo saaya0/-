@@ -1,65 +1,68 @@
-<nav>
-  <ul>
-    <div>
-      静岡観光地情報
-    </div>
-
-    <% if user_signed_in? %><%# もし会員がﾛｸﾞｲﾝしていれば %>
-      <li class="name-link">
-        ようこそ<%=link_to "#{current_user.name}", user_path(current_user) %>さん！
-      </li>
-      <li>
-        <%= link_to spots_path do %>
-          MAP<i class="fas fa-map-marked-alt"></i>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to spots_favorite_path do %>
-          FAVORITE<i class="fas fa-star"></i>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to spots_sarch_path do %>
-          SARCH<i class="fas fa-search"></i>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to destroy_user_session_path, method: :delete do %>
-          LOG OUT<i class="fas fa-sign-out-alt"></i>
-        <% end %>
-      </li>
-    <% elsif admin_signed_in? %><%# もし管理者がﾛｸﾞｲﾝしていれば %>
-      <li>
-        <%= link_to spots_path do %>
-          <i class="fas fa-map-marked-alt"></i>
-          <span>MAP</span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to users_path do %>
-          <i class="fas fa-users"></i>
-          <span>USER</span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to spots_path do %>
-          <i class="fas fa-sign-out-alt"></i>
-          <span>LOGOUT</span>
-        <% end %>
-      </li>
-    <% else %><%# 誰もﾛｸﾞｲﾝしていなければ %>
-      <li>
-        <%= link_to new_user_registration_path do %>
-          <i class="fas fa-user-plus"></i>
-          <span>SIGN UP</span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to new_user_session_path do %>
-          <i class="fas fa-sign-in-alt"></i>
-          <span>SIGN IN</span>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-</nav>
+<header>
+  <h1>SHIZUOKA-spot-</h1>
+  <nav>
+    <ul>
+      <% if user_signed_in? %><%# もし会員がﾛｸﾞｲﾝしていれば %>
+        <li class="name-link">
+          Hello,<%=link_to "#{current_user.name}", user_path(current_user) %>!
+        </li>
+        <li class= "menu-link">
+          <%= link_to spots_path do %>
+            <i class="fas fa-map-marked-alt"></i>
+            <br> MAP
+          <% end %>
+        </li>
+        <li class="menu-link">
+          <%= link_to spots_favorite_path do %>
+            <i class="fas fa-star"></i>
+            <br>FAVORITE
+          <% end %>
+        </li>
+        <li class="menu-link">
+          <%= link_to spots_sarch_path do %>
+            <i class="fas fa-search"></i>
+            <br>SARCH
+          <% end %>
+        </li>
+        <li class="menu-link">
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fas fa-sign-out-alt"></i>
+            <br>LOG OUT
+          <% end %>
+        </li>
+      <% elsif admin_signed_in? %><%# もし管理者がﾛｸﾞｲﾝしていれば %>
+        <li clas="menu-link">
+          <%= link_to spots_path do %>
+            <i class="fas fa-map-marked-alt"></i>
+            <br>MAP
+          <% end %>
+        </li>
+        <li class="menu-link">
+          <%= link_to users_path do %>
+            <i class="fas fa-users"></i>
+            <br>USER
+          <% end %>
+        </li>
+        <li class="menu-link">
+          <%= link_to spots_path do %>
+            <i class="fas fa-sign-out-alt"></i>
+            <br>LOGOUT
+          <% end %>
+        </li>
+      <% else %><%# 誰もﾛｸﾞｲﾝしていなければ %>
+        <li class="menu-link">
+          <%= link_to new_user_registration_path do %>
+            <i class="fas fa-user-plus"></i>
+            <br>SIGN UP
+          <% end %>
+        </li>
+        <li class="menu-link">
+          <%= link_to new_user_session_path do %>
+            <i class="fas fa-sign-in-alt"></i>
+            <br>SIGN IN
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+</header>

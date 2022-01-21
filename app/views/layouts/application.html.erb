@@ -5,23 +5,24 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= include_gon %>
-
+    <script src="https://kit.fontawesome.com/6dd6968c0b.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <!--<script src="https://kit.fontawesome.com/6dd6968c0b.js?key=GOOGLE_MAP_API&callback=initMap" crossorigin="anonymous"></script>-->
   </head>
 
   <body>
-    <% @paths.each do |path| %>
-      <% if current_page?(path) %>
-        <% @header = false %>
+      <% @paths.each do |path| %>
+        <% if current_page?(path) %>
+          <% @header = false %>
+        <% end %>
       <% end %>
-    <% end %>
-    <% if @header %>
-      <%= render "layouts/header" %>
-    <% end %>
+      <% if @header %>
+        <%= render "layouts/header" %>
+      <% end %>
     <%= yield %>
-
-
   </body>
 </html>

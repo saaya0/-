@@ -1,9 +1,42 @@
-<div>
-  <%= link_to "新規登録", new_user_registration_path %>
+<!--スライドショー-->
+
+<div class="slick">
+  <div>
+    <%= image_tag 'image_1.jpg', class:'col' %>
+  </div>
+  <div>
+    <%= image_tag 'image_2.jpg', class:'col' %>
+  </div>
+  <div>
+    <%= image_tag 'image_3.jpg', class:'col' %>
+  </div>
 </div>
 <div>
-  <%= link_to "ログイン", new_user_session_path %>
+  SHIZUOKA-spot-
+</div>
+こちらのサイトをご利用頂き、誠にありがとうございます。
+静岡出身の管理者が、
+「静岡県の観光スポットが一目でわかるサイトを作成したい！」
+と思い、共有サイトを作成致しました。
+
+ﾛｸﾞｲﾝせずに使用することもできますが、
+ログインすると。。。
+
+  ☆観光地の詳細が見られる
+  ☆お気に入りマークを付けられる
+  ☆観光地を登録できる
+  ☆コメントを閲覧、送信ができる
+
+！ぜひ、登録をして、観光地を共有しましょう！
+
+
+<div>
+  <%= link_to "SIGN UP", new_user_registration_path %>
+</div>
+<div>
+  <%= link_to "SIGN IN", new_user_session_path %>
 </div>
 <div>
   ログインしないで利用する方は<%= link_to "こちら", spots_path %>へ
 </div>
+<script src="top.js.erb"></script>

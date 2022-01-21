@@ -2,9 +2,6 @@ class User::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @spots = @user.spots
-    favorites = Favorite.where(user_id: current_user.id).pick(spot_id)
-    @favorite_list = Spot.find(favorites)
   end
 
   def update
@@ -23,7 +20,7 @@ class User::UsersController < ApplicationController
     reset_session
     redirect_to root_path
   end
-  
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :admin)

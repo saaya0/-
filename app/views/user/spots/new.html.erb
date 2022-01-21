@@ -1,25 +1,42 @@
-<h4>新規投稿</h4>
-<%= form_with(model:@spot) do |f| %>
-<li>
-  <%= f.label :観光地名 %>
-  <%= f.text_field :spot_name %>
-</li>
-<li>
-  <%= f.label :post_code %>
-  <%= f.text_field :post_code %>
-</li>
-<li>
-  <%= f.label :address %>
-  <%= f.text_field :address, class: 'from-control' %>
-</li>
-<li>
-  <%= f.label :spot_text %>
-  <%= f.text_area :spot_text %>
-</li>
-<li>
-  <%= f.label :観光地画像 %>
-  <%= f.attachment_field :spot_img %>
-</li>
-  <%= f.submit '投稿' %>
-<% end %>
+<h2>NEW SPOT</h2>
 
+<%= form_with(model:@spot) do |f| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-6">
+        <table>
+          <tr>
+            <th><%= f.label :spot_name %></th>
+            <td><%= f.text_field :spot_name %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :post_code %></th>
+            <td><%= f.text_field :post_code %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :address %></th>
+            <td><%= f.text_field :address, class: 'from-control' %></td>
+          </tr>
+           <tr>
+            <th><%= f.label :spot_text %></th>
+            <td><%= f.text_area :spot_text %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :phot %></th>
+            <td><%= f.attachment_field :spot_img %></td>
+          </tr>
+          <tr>
+            <th><%= button_tag 'create<i class="fa fa-save"></i>'.html_safe, :type => "submit", :class =>"btn btn-outline-primary" %></th>
+          </tr>
+      </div>
+    </th>
+  </tr>
+        </table>
+      </div>
+      <div class="col-lg-4"></div>
+    </div>
+  </div>
+  
+
+<% end %>

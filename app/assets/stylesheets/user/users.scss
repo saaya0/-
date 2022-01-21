@@ -1,3 +1,27 @@
 // Place all the styles related to the user/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h2 {
+    font-family:"Comic Sans MS", "ヒラギノ明朝 Pro W3", serif;
+    position: relative;
+    padding: 1.4rem 1rem;
+}
+
+h2:after {               //見出しのデザイン
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    content: '';
+    background-image: -webkit-repeating-linear-gradient(135deg, #000, #000 1px, transparent 2px, transparent 5px);
+    background-image: pepeating-linear-gradient(-45deg, #000, #000 1px, transparent 2px, transparent 5px);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+h4 {
+    padding-top : 2%;
+    padding-bottom: 2%;
+}

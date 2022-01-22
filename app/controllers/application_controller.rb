@@ -5,15 +5,22 @@ class ApplicationController < ActionController::Base
   def top; end
 
   def after_sign_in_path_for(resource)
+    flash[:success] = "successful"
     spots_path
   end
 
   def after_sign_up_path_for(resource)
+    flash[:success] = " successful"
     spots_path
   end
 
+  def after_sign_out_path_for(resource)
+    flash[:success] = "Logged out."
+    root_path
+  end
+
   private
-  
+
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end

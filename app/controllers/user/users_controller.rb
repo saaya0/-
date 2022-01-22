@@ -1,10 +1,7 @@
 class User::UsersController < ApplicationController
-
+before_action :authenticate_user!
   def show
     @user = User.find(params[:id])
-    unless @user == current_user
-      redirect_to new_user_session_path
-    end
   end
 
   def update
@@ -15,9 +12,6 @@ class User::UsersController < ApplicationController
 
   def unsubscribe
     @user = User.find_by(params[:id])
-    unless @user == current_user
-      redirect_to new_user_session_path
-    end
   end
 
   def withdraw
@@ -31,6 +25,4 @@ class User::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :admin)
   end
-
-
 end

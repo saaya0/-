@@ -1,8 +1,14 @@
-<h2>本当に退会しますか？</h2>
-<div>
-  退会する場合は、【退会する】をクリックしてください
-</div>
-<div>
-  <%= link_to '退会しない', user_path(@user) %>
-  <%= link_to "退会する", withdraw_user_path(@user), method: :PATCH, class: "glyphicon glyphicon-tint btn btn-danger" %>
+<div class="text-center">
+  <h2>Do you really want to unsubscribe?</h2>
+  <div>
+    if you want to unsubscribe, please click "unsubscribe"
+  </div>
+  <div class="unsubscribe-botton">
+    <%= link_to user_path(@user), class: "btn btn-outline-secondary" do %>
+      return<i class="fas fa-undo-alt"></i>
+    <% end %>
+    <%= link_to withdraw_user_path(@user), method: :PATCH, class:"btn btn-outline-danger" do %>
+      unsubscribe<i class="fas fa-user-times"></i>
+    <% end %>
+  </div>
 </div>

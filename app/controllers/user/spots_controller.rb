@@ -1,4 +1,5 @@
 class User::SpotsController < ApplicationController
+before_action :authenticate_user!,except: [:index]
 
   def new
     @spot = Spot.new
@@ -7,8 +8,12 @@ class User::SpotsController < ApplicationController
   def create
     converted_params = spot_params.merge({user_id: current_user.id}) #観光地登録者のユーザー登録
     @spot = Spot.new(converted_params)
-    @spot.save
-    redirect_to spots_path
+    if @spot.save
+      flash[:success] = "It was successful."
+      redirect_to spots_path
+    else
+      render :new
+    end
   end
 
   def index
@@ -22,16 +27,10 @@ class User::SpotsController < ApplicationController
   def show
     @spot = Spot.find(params[:id])
     @comment = Comment.new
-    unless current_user
-      redirect_to new_user_session_path
-    end
   end
 
   def edit
     @spot = Spot.find(params[:id])
-    unless @spot.user && current_user
-      redirect_to new_user_session_path
-    end
   end
 
   def update
@@ -47,16 +46,12 @@ class User::SpotsController < ApplicationController
   end
 
   def favorite
-    unless current_user
-      redirect_to new_user_session_path
-    else
       @user = current_user
       @spots = @user.spots
       favorites = Favorite.where(user_id: current_user.id).pluck(:spot_id)
       @favorite_list = Spot.find(favorites)
-    end 
   end
-  
+
   def sarch
   end
 

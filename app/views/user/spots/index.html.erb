@@ -1,5 +1,7 @@
 <div>
   <h2>MAP</h2>
+
+  <div class="success"><%= flash[:success] %></div>
   <div class= "spot-add">
     <% if current_user %>
       <%= link_to new_spot_path, class: "btn btn-outline-secondary" do %>
@@ -7,7 +9,7 @@
       <% end %>
     <% end %>
   </div>
-  
+
   <div id='map'></div>
   <script>
 
@@ -58,5 +60,4 @@
 
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API']%>&callback=initMap" async defer></script>
-  <div></div>
 </div>

@@ -6,6 +6,7 @@ h2 {
     font-family:"Comic Sans MS", "ヒラギノ明朝 Pro W3", serif;
     position: relative;
     padding: 1.4rem 1rem;
+    text-align: center;
 }
 
 h2:after {               //見出しのデザイン
@@ -24,4 +25,8 @@ h2:after {               //見出しのデザイン
 h4 {
     padding-top : 2%;
     padding-bottom: 2%;
+}
+
+.unsubscribe-botton {
+    margin-top: 1%;
 }

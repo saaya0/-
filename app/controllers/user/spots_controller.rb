@@ -22,10 +22,16 @@ class User::SpotsController < ApplicationController
   def show
     @spot = Spot.find(params[:id])
     @comment = Comment.new
+    unless current_user
+      redirect_to new_user_session_path
+    end
   end
 
   def edit
     @spot = Spot.find(params[:id])
+    unless @spot.user && current_user
+      redirect_to new_user_session_path
+    end
   end
 
   def update
@@ -41,10 +47,17 @@ class User::SpotsController < ApplicationController
   end
 
   def favorite
-    @user = current_user
-    @spots = @user.spots
-    favorites = Favorite.where(user_id: current_user.id).pluck(:spot_id)
-    @favorite_list = Spot.find(favorites)
+    unless current_user
+      redirect_to new_user_session_path
+    else
+      @user = current_user
+      @spots = @user.spots
+      favorites = Favorite.where(user_id: current_user.id).pluck(:spot_id)
+      @favorite_list = Spot.find(favorites)
+    end 
+  end
+  
+  def sarch
   end
 
 

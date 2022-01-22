@@ -1,10 +1,22 @@
-<h4>お気に入り</h4>
-<% unless @favorite_list.empty? %>
-  <% @favorite_list.each do |spot| %>
-    <%= link_to spot.spot_name, spot_path(spot) %>
-    <%= attachment_image_tag spot, :spot_img, :fill, 100, 100, format: 'jpeg' %>
-  <% end %>
-<% else %>
-  お気に入りをしておりません。
-  観光地の詳細ページからお気に入りが出来ます。
-<% end %>
+<h2>FAVORITE</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-6">
+      <div class="d-flex flex-wrap mb-3 w-100">
+        <% unless @favorite_list.empty? %>
+          <% @favorite_list.each do |spot| %>
+            <div class="w-25">
+              <%= link_to spot.spot_name, spot_path(spot) %>
+              <%= attachment_image_tag spot, :spot_img, :fill, 100, 100, format: 'jpeg' %>
+            </div>
+          <% end %>
+        <% else %>
+          お気に入りをしておりません。<br>
+          観光地の詳細ページからお気に入りが出来ます。
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

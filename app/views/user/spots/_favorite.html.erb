@@ -1,13 +1,14 @@
-<% if user_signed_in? %>
-  <% if spot.favorited_by?(current_user) %>
-    <%=link_to spot_favorites_path(spot_id: spot.id, id: spot.id), method: :delete do %>
-      お気に入り登録済
-      <%= spot.favorites.count %>
-    <% end %>
-  <% else %>
-    <%=link_to spot_favorites_path(spot), method: :spot do %>
-      お気に入り登録しますか？
-      <%= spot.favorites.count %>
+
+  <% if spot.user == current_user %>
+    　<i class="fas fa-star"></i><%= spot.favorites.count %>
+  <% else %>  
+    <% if spot.favorited_by?(current_user) %>
+      <%=link_to spot_favorites_path(spot_id: spot.id, id: spot.id), method: :delete do %>
+        I like it!!<i class="fas fa-star"></i>
+      <% end %>
+    <% else %>
+      <%=link_to spot_favorites_path(spot), method: :spot do %>
+        Do you like it?<i class="fas fa-star"></i>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>

@@ -1,42 +1,48 @@
-<h4>観光地詳細</h4>
-
-<h5>観光地名</h5>
-<p><%= @spot.spot_name %> </p>
-<h5>観光地画像</h5>
-<%= attachment_image_tag @spot, :spot_img, :fill, 100, 100, format: 'jpeg' %>
-<h5>観光地住所</h5>
-<p><%= @spot.post_code %></p>
-<p><%= @spot.address %></p>
-<h5>説明</h5>
-<p><%= @spot.spot_text %></p>
-<h5>営業</h5>
-<p><%= @spot.business_day %></p>
-<p><%= @spot.business_hour %></p>
-
-
-<div class= "favorite" id="spot_<% @spot.id %>">
- <%= render "user/spots/favorite", spot: @spot %>
-</div>
-
-<%= link_to "編集", edit_spot_path(@spot) %>
-<%= link_to "削除", spot_path(@spot), method: :delete, "data-comfirm" => "本当に削除しますか" %>
-
-<div>
-<p>コメント件数：<%= @spot.comments.count %></p>
-<% @spot.comments.each do |comment| %>
-  <p><%= comment.comment_img %></p>
-  <%= comment.user.name %>
-  <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-  <% if comment.user == current_user %>
-  <div>
-    <%= link_to "コメント削除", spot_comment_path(comment.spot, comment), method: :delete %>
-  </div>
+<h3>
+  SPOT【<%= @spot.spot_name %>】
+  <%= link_to spots_path, class: "btn btn-outline-secondary btn-sm" do %>
+    <i class="fas fa-undo-alt"></i>
   <% end %>
+</h3>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <%= attachment_image_tag @spot, :spot_img, :fill, 460, 400, format: 'jpeg' %>
+    </div>
+    <div class="col-lg-6">
+      <h5 class="object">spot address</h5>
+      <p>　<%= @spot.post_code %></p>
+      <p>　　<%= @spot.address %></p>
+      <h5 class="object">explain</h5>
+      <p>　<%= @spot.spot_text %></p>
+
+      <% if @spot.user %>
+        <%= link_to edit_spot_path(@spot), class: "btn btn-outline-secondary btn-sm" do %>
+          edit<i class="fas fa-edit"></i>
+        <% end %>
+        <%= link_to spot_path(@spot), method: :delete, "data-comfirm" => "本当に削除しますか",class: "btn btn-outline-danger btn-sm" do %>
+          delete<i class="fas fa-trash-alt"></i>
+        <% end %>
+      <% end %>
+
+      <h5 class="object">favorite・comment</h5>
+      <div class= "favorite" id="spot_<% @spot.id %>">
+         <%= render "user/spots/favorite", spot: @spot %>
+      </div>
+      <p>comment:<%= @spot.comments.count %></p>
+      <% @spot.comments.each do |comment| %>
+        <%= comment.user.name %>
+        <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+        <% if comment.user == current_user %>
+          <%= link_to "delete", spot_comment_path(comment.spot, comment), method: :delete, class: "btn btn-outline-danger btn-sm" %>
+        <% end %>
 <% end %>
-</div>
-<div>
 <%= form_with(model:[@spot, @comment], local: true) do |f| %>
-  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-  <%= f.submit "送信する" %>
+  <%= f.text_area :comment,:size=>"60x3",placeholder: "comment here" %>
+  <%= button_tag 'enter'.html_safe, :type => "submit", :class =>"btn btn-outline-primary btn-sm" %>
 <% end %>
+
+    </div>
+  </div>
 </div>

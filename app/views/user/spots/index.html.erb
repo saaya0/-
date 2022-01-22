@@ -1,10 +1,13 @@
 <div>
   <h2>MAP</h2>
   <div class= "spot-add">
-    <%= link_to new_spot_path, class: "btn btn-outline-secondary" do %>
-      new spot<i class="fas fa-plus"></i>
+    <% if current_user %>
+      <%= link_to new_spot_path, class: "btn btn-outline-secondary" do %>
+        new spot<i class="fas fa-plus"></i>
+      <% end %>
     <% end %>
   </div>
+  
   <div id='map'></div>
   <script>
 

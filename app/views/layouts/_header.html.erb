@@ -2,7 +2,26 @@
   <h1>SHIZUOKA-spot-</h1>
   <nav>
     <ul>
-      <% if user_signed_in? %><%# もし会員がﾛｸﾞｲﾝしていれば %>
+      <% if admin_signed_in? %><%# もし管理者がﾛｸﾞｲﾝしていれば %>
+        <li clas="menu-link">
+          <%= link_to spots_path do %>
+            <i class="fas fa-map-marked-alt"></i>
+            <br>MAP
+          <% end %>
+        </li>
+        <li class="menu-link">
+          <%= link_to users_path do %>
+            <i class="fas fa-users"></i>
+            <br>USER
+          <% end %>
+        </li>
+        <li class="menu-link">
+          <%= link_to spots_path do %>
+            <i class="fas fa-sign-out-alt"></i>
+            <br>LOGOUT
+          <% end %>
+        </li>
+      <% elsif user_signed_in? %><%# もし会員がﾛｸﾞｲﾝしていれば %>
         <li class="name-link">
           Hello,<%=link_to "#{current_user.name}", user_path(current_user) %>!
         </li>
@@ -28,25 +47,6 @@
           <%= link_to destroy_user_session_path, method: :delete do %>
             <i class="fas fa-sign-out-alt"></i>
             <br>LOG OUT
-          <% end %>
-        </li>
-      <% elsif admin_signed_in? %><%# もし管理者がﾛｸﾞｲﾝしていれば %>
-        <li clas="menu-link">
-          <%= link_to spots_path do %>
-            <i class="fas fa-map-marked-alt"></i>
-            <br>MAP
-          <% end %>
-        </li>
-        <li class="menu-link">
-          <%= link_to users_path do %>
-            <i class="fas fa-users"></i>
-            <br>USER
-          <% end %>
-        </li>
-        <li class="menu-link">
-          <%= link_to spots_path do %>
-            <i class="fas fa-sign-out-alt"></i>
-            <br>LOGOUT
           <% end %>
         </li>
       <% else %><%# 誰もﾛｸﾞｲﾝしていなければ %>

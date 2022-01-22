@@ -5,10 +5,10 @@
 <% flash.each do |key, value| %>
     <%= content_tag(:div, value, class: "#{key}") %>
 <% end %>
-
+<div class="log_in">
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, :size=>"30x1", autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
@@ -24,8 +24,9 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= button_tag 'sign up<i class="fas fa-sign-in-alt"></i>'.html_safe, :type => "submit", :class =>"btn btn-outline-primary" %>
   </div>
 <% end %>
 
 <%= render "user/shared/links" %>
+</div>

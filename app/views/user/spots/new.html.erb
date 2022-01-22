@@ -1,12 +1,12 @@
 <h2>NEW SPOT</h2>
 
   <div class="alert">
-  <% if @spot.errors.any? %>
-    <%= @spot.errors.count %> errors<br>
-    <% @spot.errors.full_messages.each do |message| %>
-     ☆ <%= message %><br>
+    <% if @spot.errors.any? %>
+      <%= @spot.errors.count %> errors<br>
+      <% @spot.errors.full_messages.each do |message| %>
+       ☆ <%= message %><br>
+      <% end %>
     <% end %>
-  <% end %>
   </div>
 <%= form_with(model:@spot, local: true) do |f| %>
   <div class="container">

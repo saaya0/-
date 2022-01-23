@@ -1,7 +1,9 @@
 class User::UsersController < ApplicationController
 before_action :authenticate_user!
   def show
-    @user = User.find(params[:id])
+    @user = current_user
+    @spots = @user.spots
+    @spot = Spot.find(params[:id])
   end
 
   def update

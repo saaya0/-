@@ -12,7 +12,7 @@ class Spot < ApplicationRecord
   validates :spot_text, length: {in: 1..100}
   validates :post_code, presence: true
   validates :address, presence: true         #空ではいけない
-  validates :address, uniqueness: true       #重複してはいけない
+  validates :address, uniqueness: true, on: :create      #重複してはいけない
   validates :spot_img, presence: true
-  
+
 end

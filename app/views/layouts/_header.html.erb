@@ -1,27 +1,8 @@
-<header>
+<header class="imege">
   <h1>SHIZUOKA-spot-</h1>
   <nav>
     <ul>
-      <% if admin_signed_in? %><%# もし管理者がﾛｸﾞｲﾝしていれば %>
-        <li clas="menu-link">
-          <%= link_to spots_path do %>
-            <i class="fas fa-map-marked-alt"></i>
-            <br>MAP
-          <% end %>
-        </li>
-        <li class="menu-link">
-          <%= link_to users_path do %>
-            <i class="fas fa-users"></i>
-            <br>USER
-          <% end %>
-        </li>
-        <li class="menu-link">
-          <%= link_to spots_path do %>
-            <i class="fas fa-sign-out-alt"></i>
-            <br>LOGOUT
-          <% end %>
-        </li>
-      <% elsif user_signed_in? %><%# もし会員がﾛｸﾞｲﾝしていれば %>
+      <% if user_signed_in? %><%# もし会員がﾛｸﾞｲﾝしていれば %>
         <li class="name-link">
           Hello,<%=link_to "#{current_user.name}", user_path(current_user) %>!
         </li>
@@ -49,6 +30,14 @@
             <br>LOG OUT
           <% end %>
         </li>
+        <% if current_user == @user || current_user.admin? %><%# もし管理者がﾛｸﾞｲﾝしていれば %>
+          <li class="menu-link">
+            <%= link_to spots_path do %>
+              <i class="fas fa-users"></i>
+              <br>USER
+            <% end %>
+          </li>
+        <% end %>
       <% else %><%# 誰もﾛｸﾞｲﾝしていなければ %>
         <li class="menu-link">
           <%= link_to new_user_registration_path do %>

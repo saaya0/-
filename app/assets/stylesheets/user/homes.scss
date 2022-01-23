@@ -26,3 +26,24 @@
   color: rgb(116, 116, 116);
   font-size: 50px;
 }
+
+.top-text {
+  position: absolute;  //テキストの配置を画像に被るようにする
+  z-index: 99; //テキストが画像より前に来る
+  text-align: center;
+  font-weight: 900;
+  background-color: rgba(255,255,255,0.4);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  padding-bottom: 3%;
+}
+
+.col {
+  width: 100px;
+  height: 500px;
+  opacity: 0.7;
+  margin : 0 auto
+}

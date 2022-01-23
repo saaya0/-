@@ -30,10 +30,10 @@ header {
   top: 0;
   background-image: url(header3.jpg);
   background-size: 100% 100%;
-  opacity: 0.7;
+  background-color: rgba(255,255,255,0.4);
+  background-blend-mode: lighten; /* 明るく薄くできる（画像の前に持ってくる）*/
   font-family:"Comic Sans MS", "ヒラギノ明朝 Pro W3", serif;
   font-weight: 900;
-  -webkit-text-stroke: 1px #000000;
 }
 
 h1 {
@@ -46,19 +46,23 @@ ul {
   display: flex;
 }
 
+li {
+  color: #000000;
+}
+
 .menu-link a {
   padding: 10px 15px;
-  color: #202020;
+  color: #494949;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 900;
   font-size: 14px;
 }
 
 .menu-link i {
   padding: 10px 15px;
-  color: #202020;
+  color: #494949;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 900;
   font-size: 30px;
 }
 
@@ -85,7 +89,7 @@ ul {
 
 .name-link a {
   padding: 10px 10px;
-  color: #202020;
+  color: #3c3c3c;
   text-decoration: none;
   font-weight: bold;
   font-size: 15px;

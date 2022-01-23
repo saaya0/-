@@ -1,4 +1,3 @@
-
   $('.slick').slick({
     // 自動再生
     autoplay:true,

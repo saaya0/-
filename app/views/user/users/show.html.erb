@@ -19,15 +19,17 @@
     unsubscribe<i class="fas fa-user-times"></i>
   <% end %>
 
-  <h4>create spot</h4>
+  <h4>[create spot]</h4>
+
   <div class="spot-list">
     <% @spots. each do |spot| %>
-      <%= link_to spot_path(spot) do %>
-        <%= attachment_image_tag spot, :spot_img, :fill, 50, 50, format: 'jpeg' %><br>
-        <h8><%= spot.spot_name %></h8>
-      <% end %>
+      <div class="spot-box">
+        <%= link_to spot_path(spot) do %>
+          <%= attachment_image_tag spot, :spot_img, :fill, 150, 150, format: 'jpeg' %><br>
+          <h9><%= spot.spot_name %></h9>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>
-
-
+<%= paginate @spots %>

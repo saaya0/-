@@ -1,0 +1,14 @@
+
+  <% if spot.user == current_user %>
+    　<i class="fas fa-star"></i><%= spot.favorites.count %>
+  <% else %>
+    <% if current_user.favorite?(spot) %>
+      <%= link_to spot_favorites_path(spot), method: :delete, remote: true do %>
+        I like it!!<i class="fas fa-star"></i>
+      <% end %>
+    <% else %>
+      <%= link_to spot_favorites_path(spot), method: :post, remote: true do %>
+        Do you like it?<i class="fal fa-star"></i>
+      <% end %>
+    <% end %>
+  <% end %>

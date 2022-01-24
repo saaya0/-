@@ -10,4 +10,17 @@ class User < ApplicationRecord
 
   validates :email, {presence: true}
   validates :name, {length: {in: 1..15} }
+  
+  def favorite(spot)
+    Favorite.create!(user_id: id, spot_id: spot.id)
+  end
+  #お気に入り解除
+  def unfavorite(spot)
+    Favorite.find_by(user_id: id, spot_id: spot.id).destroy
+  end
+  #お気に入り登録
+  def favorite?(spot)
+    Favorite.find_by(user_id: id, spot_id: spot.id).present?
+  end
+  
 end

@@ -7,15 +7,25 @@ Rails.application.routes.draw do
     sessions: 'user/sessions'
   }
 
-  get 'top' => 'user/homes#top'
-  root 'user/homes#top'
+    scope module: :admin do
+      resources :users, only: [:index] do
+        member do
+          patch :revival
+        end
+      end
+     #post 'users/:id/revival' => 'users#revival', as: 'revival_user'
+    end
 
-  scope module: :user do
-    get 'spots/favorite' => 'spots#favorite'
-    get 'spots/sarch' => 'spots#sarch'
-    resources :spots do
-      resources :comments, only: [:create,:destroy]
-      resource :favorites, only: [:create, :destroy]
+
+    get 'top' => 'user/homes#top'
+    root 'user/homes#top'
+
+    scope module: :user do
+      get 'spots/favorite' => 'spots#favorite'
+      get 'spots/sarch' => 'spots#sarch'
+      resources :spots do
+        resources :comments, only: [:create,:destroy]
+        resource :favorites, only: [:create, :destroy]
     end
 
 

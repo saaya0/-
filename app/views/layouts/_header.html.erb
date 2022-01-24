@@ -32,7 +32,7 @@
         </li>
         <% if current_user == @user || current_user.admin? %><%# もし管理者がﾛｸﾞｲﾝしていれば %>
           <li class="menu-link">
-            <%= link_to spots_path do %>
+            <%= link_to users_path do %>
               <i class="fas fa-users"></i>
               <br>USER
             <% end %>

@@ -1,0 +1,33 @@
+<h2>USERS</h2>
+
+<div class="container">
+  <div class="row">
+  	<div class="col">
+  		<table class='table'>
+	  		<thead>
+	  			<tr>
+	  			<th>id</th>
+	  			<th>name</th>
+	  			<th>e-mail</th>
+	  			<th>status</th>
+	  		</tr>
+	  		</thead>
+	  		<tbody>
+	  		  <% @users.each do |user| %>
+  	  			<tr>
+  	  				<td><%= user.id %></td>
+  	  				<td><%= user.name %></td>
+  	  				<td><%= user.email %></td>
+  	  				<td>
+  	  				  <%= user.is_valid %>
+  	  				  <% if user.is_valid == false %>
+  	  				    <%= link_to "revival", revival_user_path(user), method: :PATCH %>
+  	  				   <% end %>
+  	  				</td>
+  	  			</tr>
+	  		  <% end %>
+	  		</tbody>
+	  	</table>
+  	</div>
+  </div>
+ </div>

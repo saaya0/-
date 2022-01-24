@@ -2,8 +2,9 @@ class User::UsersController < ApplicationController
 before_action :authenticate_user!
   def show
     @user = current_user
-    @spots = @user.spots
+    @spots = @user.spots.page(params[:page]).per(8)
     @spot = Spot.find(params[:id])
+    
   end
 
   def update

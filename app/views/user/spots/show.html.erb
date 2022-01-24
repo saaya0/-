@@ -27,8 +27,8 @@
       <% end %>
 
       <h5 class="object">favorite・comment</h5>
-      <div class= "favorite" id="spot_<% @spot.id %>">
-         <%= render "user/spots/favorite", spot: @spot %>
+      <div class= "favorite" id="spot_<%= @spot.id %>">
+         <%= render "user/spots/favorites", spot: @spot %>
       </div>
       <p>comment:<%= @spot.comments.count %></p>
       <% @spot.comments.each do |comment| %>

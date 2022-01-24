@@ -31,6 +31,26 @@ h4 {
     margin-top: 1%;
 }
 
-.spot_list {
-    flex-wrap: wrap;
+.spot-list{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
+
+.spot-list:after{
+  content:"";
+  display:block;
+  width: 25%;
+  height:0;
+}
+.spot-box {
+  width: 25%;
+  height: 190px;
+  margin-bottom: 10px;
+}
+
+.pagination {
+  justify-content: center;
+  
+}
+

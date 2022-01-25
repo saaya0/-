@@ -3,6 +3,7 @@ class Spot < ApplicationRecord
   has_many :favorites, dependent: :destroy
   belongs_to :user
 
+
   attachment :spot_img
 
   geocoded_by :address #adddressカラムを使って経緯度を算出する

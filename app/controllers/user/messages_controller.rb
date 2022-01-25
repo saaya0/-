@@ -6,6 +6,9 @@ class User::MessagesController < ApplicationController
 
   def confirm
     @message = Message.new(message_params)
+    if @message.invalid?
+      render :new
+    end
   end
 
   def create

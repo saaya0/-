@@ -1,11 +1,11 @@
-  <div class="new-comment">
+  <div class="new-messege-view">
     <h2>Contact</h2>
 
     <% if @message.errors.any? %>
-      <div id="error_explanation" class="alert alert-danger">
+      <div class="alert">
       <ul>
         <% @message.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li><%= message %></li><br>
         <% end %>
       </ul>
     </div>

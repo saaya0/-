@@ -9,7 +9,22 @@
       <% end %>
     <% end %>
   </div>
-
+  <%= form_tag model: @spot, url: spots_path do |f| %>
+  select box
+  <label>
+    <input type="checkbox" name="genre[id]" value="1">
+    A
+  </label>
+  <label>
+    <input type="checkbox" name="genre[id]" value="2">
+    B
+  </label>
+  <label>
+    <input type="checkbox" name="genre[id]" value="3">
+    C
+  </label>
+  <%= f.submit 'submit' %>
+  <% end %>
   <div id='map'></div>
   <script> //グローバル変数がjsにまとめてしまうと、他と共有してしまう恐れがある。このぺージでしか使用しないようにするため、このままにしてある。
 
@@ -17,18 +32,18 @@
     let marker = [];
     let infoWindow = [];
     let count = 0;
-  
+
     function initMap(){
-  
+
       geocoder = new google.maps.Geocoder()
-  
+
       map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 34.97171938, lng: 138.3879278},
       zoom: 9.3
       });  //マップ表示場所とサイズ指定
       console.log(gon.spot.latitude);　//経緯
       console.log(gon.spot.longitude);　//緯度
-  
+
       <% @spots.each  do | spot| %>
         <% if spot.latitude && spot.longitude %>
           marker[count] = new google.maps.Marker({
@@ -36,22 +51,25 @@
              position: new google.maps.LatLng(<%= spot.latitude %>, <%= spot.longitude %>),
             map: map
           });　//登録した観光地のマーカー
-  
+
+
+          spot_data.last.third.include?("play")
+
           //map.setCenter( new  google.maps.LatLng(gon.spot.latitude, gon.spot.longitude));
-  
+
           infoWindow[count] = new google.maps.InfoWindow({
             content: `<%= link_to "#{spot.spot_name}", spot_path(spot) %>`
           });　// infoWindowは吹き出し、観光地名をだす
-  
+
           count++;
         <% end %>
       <% end %>
-  
+
       for (var i = 0; i < count; i++) {
         markerEvent(i)
       }
     }
-  
+
       function markerEvent(i) {
         marker[i].addListener('click', function () {
           infoWindow[i].open(map, marker[i]);

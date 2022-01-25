@@ -72,6 +72,7 @@ gem 'refile-mini_magick'
 gem 'dotenv-rails'
 gem 'geocoder'
 gem 'gon'
+gem "enum_help"
 
 group :development do
   gem 'rubocop', require: false

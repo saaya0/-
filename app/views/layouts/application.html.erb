@@ -25,5 +25,8 @@
         <%= render "layouts/header" %>
       <% end %>
     <%= yield %>
+    <% if current_user %>
+      <%= render "layouts/footer" %>
+    <% end %>
   </body>
 </html>

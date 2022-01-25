@@ -1,0 +1,24 @@
+<%= form_with model: @message, local: true, url: {action: 'create'}, method: :post do |f| %>
+  <div>
+    <h2>内容確認</h2>
+    <div>
+      <div>
+        <%= f.label :name, 'name' %><br>
+        <%= @message.name %>
+        <%= f.hidden_field :name, :value => @message.name %>
+      </div>
+      <div>
+        <%= f.label :email, 'email' %><br>
+        <%= @message.email %>
+        <%= f.hidden_field :email, :value => @message.email %>
+      </div>
+      <div>
+        <%= f.label :message, 'message' %><br>
+        <%= @message.message %>
+        <%= f.hidden_field :message, :value => @message.message %>
+      </div>
+    </div>
+    <%= f.submit '送信する' %>
+    <%= f.submit '戻る', name: 'back' %>
+  </div>
+<% end %>

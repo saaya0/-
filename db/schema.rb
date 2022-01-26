@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_25_123253) do
+ActiveRecord::Schema.define(version: 2022_01_26_070547) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 2022_01_25_123253) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "boxes", force: :cascade do |t|
+    t.string "box_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -46,6 +52,15 @@ ActiveRecord::Schema.define(version: 2022_01_25_123253) do
     t.string "name"
     t.string "email"
     t.string "message"
+  end
+
+  create_table "spot_box_relations", force: :cascade do |t|
+    t.integer "spot_id"
+    t.integer "box_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["box_id"], name: "index_spot_box_relations_on_box_id"
+    t.index ["spot_id"], name: "index_spot_box_relations_on_spot_id"
   end
 
   create_table "spots", force: :cascade do |t|

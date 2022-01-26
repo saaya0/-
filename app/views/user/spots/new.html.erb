@@ -35,7 +35,16 @@
             <td><%= f.attachment_field :spot_img %></td>
           </tr>
         <tr>
-          <td><%= f.collection_check_boxes :genre, @genres, :first, :first %></td>
+          <td>
+            <%= f.collection_check_boxes(:box_ids, Box.all, :id, :box_name) do |box| %>
+              <div class='form-check'>
+                <%= box.label class: 'form-check-label' do %>
+                  <%= box.check_box class: 'form-check-input' %>
+                  <%= box.text %>
+                <% end %>
+              </div>
+            <% end %>
+          </td>
         </tr>
 
           <tr>

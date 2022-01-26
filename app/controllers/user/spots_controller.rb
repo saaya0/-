@@ -3,7 +3,7 @@ before_action :authenticate_user!,except: [:index]
 
   def new
     @spot = Spot.new
-    @genres = [["play"], ["eat"], ["viewing"]]
+    @genres = [[0, "play"], [1, "eat"], [2, "viewing"]]
   end
 
   def create
@@ -19,12 +19,17 @@ before_action :authenticate_user!,except: [:index]
 
   def index
     @spot = Spot.new
-    spot_data = Spot.pluck(:id, :spot_name, :genre)
-    spot_data = spot_data.map{ |s| s.third.nil? ? [s.first, s.second, s.third] : [s.first, s.second, JSON.parse(s.third)] }
-     JSON.parse(genre).first
-   #gon.spot = @spot
-   gon.spot = Spot.last
-   gon.spots = Spot.all
+    #gon.spot = @spot
+    gon.spot = Spot.last
+    gon.spots = Spot.all
+    @spots = Spot.all
+    if params[:box_ids]
+      @spots = []
+      params[:box_ids].each do |key, value|
+        @spots += Box.find_by(box_name: key).spots if value == "1"
+      end
+      @spots.uniq!
+    end
   end
 
 
@@ -64,7 +69,7 @@ before_action :authenticate_user!,except: [:index]
   private
 
   def spot_params
-    params.require(:spot).permit(:spot_name, :post_code, :address, :business_day, :business_hour, :parking, :spot_text, :spot_img, :latitude, :longitude, genre: [])
+    params.require(:spot).permit(:spot_name, :post_code, :address, :spot_text, :spot_img, :latitude, :longitude, box_ids: [])
   end
 
 end

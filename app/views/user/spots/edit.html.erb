@@ -21,5 +21,16 @@
     <%= f.label :観光地画像 %>
     <%= f.attachment_field :spot_img %>
   </li>
+  
+  <li>
+    <%= f.collection_check_boxes(:box_ids, Box.all, :id, :box_name) do |box| %>
+      <div class='form-check'>
+        <%= box.label class: 'form-check-label' do %>
+          <%= box.check_box class: 'form-check-input' %>
+          <%= box.text %>
+        <% end %>
+      </div>
+    <% end %>
+  </li>
   <%= f.submit '保存' %>
 <% end %>

@@ -26,9 +26,11 @@ before_action :authenticate_user!,except: [:index]
     if params[:box_ids]
       @spots = []
       params[:box_ids].each do |key, value|
-        @spots += Box.find_by(box_name: key).spots if value == "1"
+        if value == "1"
+          box_spots = Box.find_by(box_name: key).spots
+          @spots = @spots.empty? ? box_spots : @spots & box_spots
+        end
       end
-      @spots.uniq!
     end
   end
 

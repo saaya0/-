@@ -1,6 +1,6 @@
 <%= form_with model: @message, local: true, url: {action: 'create'}, method: :post do |f| %>
-  <div>
-    <h2>内容確認</h2>
+  <div class="messege-view">
+    <h2>Confirm the contents</h2>
     <div>
       <div>
         <%= f.label :name, 'name' %><br>
@@ -18,7 +18,7 @@
         <%= f.hidden_field :message, :value => @message.message %>
       </div>
     </div>
-    <%= f.submit '送信する' %>
-    <%= f.submit '戻る', name: 'back' %>
+    <%= button_tag 'send a message<i class="far fa-paper-plane"></i>'.html_safe, :type => "submit", :class =>"btn btn-outline-primary" %>
+    <%= f.submit 'return', name: 'back' %>
   </div>
 <% end %>

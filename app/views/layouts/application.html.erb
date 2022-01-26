@@ -24,7 +24,9 @@
       <% if @header %>
         <%= render "layouts/header" %>
       <% end %>
-    <%= yield %>
+      <main>
+        <%= yield %>
+      </main>
     <% if current_user %>
       <%= render "layouts/footer" %>
     <% end %>

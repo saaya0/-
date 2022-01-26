@@ -21,7 +21,7 @@ before_action :authenticate_user!,except: [:index]
     @spot = Spot.new
     spot_data = Spot.pluck(:id, :spot_name, :genre)
     spot_data = spot_data.map{ |s| s.third.nil? ? [s.first, s.second, s.third] : [s.first, s.second, JSON.parse(s.third)] }
-     JSON.parse(.genre).first
+     JSON.parse(genre).first
    #gon.spot = @spot
    gon.spot = Spot.last
    gon.spots = Spot.all

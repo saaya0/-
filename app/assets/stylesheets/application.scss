@@ -17,6 +17,13 @@
   @import "slick-theme";
   @import "slick";
 
+body {
+   margin: 0;
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+}
+
 header {
   width: 100%;
   height: 120px;
@@ -34,6 +41,10 @@ header {
   background-blend-mode: lighten; /* 明るく薄くできる（画像の前に持ってくる）*/
   font-family:"Comic Sans MS", "ヒラギノ明朝 Pro W3", serif;
   font-weight: 900;
+}
+
+main {
+  flex: 1;
 }
 
 h1 {

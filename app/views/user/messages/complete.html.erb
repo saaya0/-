@@ -1,10 +1,11 @@
-<div>
-  <h2>メッセージ送信完了</h2>
+<div class="messege-view">
+  <h2>Message sent complete!</h2>
   <p>
-    メッセージをいただきありがとうございました。<br>
-    確認メールを送信させて頂きましたので、<br>
-    ご確認ください。
+    thank you for the message.<br>
+    we have sent you a confirmation email, so please check.
   </p>
   
-  <%= link_to 'return', spots_path %>
+  <%= link_to spots_path, class: "btn btn-outline-secondary btn-sm" do %>
+    <i class="fas fa-undo-alt"></i>
+  <% end %>
 </div>

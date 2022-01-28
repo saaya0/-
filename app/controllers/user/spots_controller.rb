@@ -19,7 +19,6 @@ before_action :authenticate_user!,except: [:index]
 
   def index
     @spot = Spot.new
-    #gon.spot = @spot
     gon.spot = Spot.last
     gon.spots = Spot.all
     @spots = Spot.all
@@ -34,9 +33,7 @@ before_action :authenticate_user!,except: [:index]
     end
   end
 
-
   def show
-
     @spot = Spot.find(params[:id])
     @comment = Comment.new
   end
@@ -64,15 +61,12 @@ before_action :authenticate_user!,except: [:index]
   end
 
   def favorite
-      @user = current_user
-      @spots = @user.spots
-      favorites = Favorite.where(user_id: current_user.id).pluck(:spot_id)
-      @favorite_list = Spot.find(favorites)
+    favorites = Favorite.where(user_id: current_user.id).pluck(:spot_id)
+    @favorite_list = Spot.find(favorites)
   end
 
   def sarch
   end
-
 
 
   private

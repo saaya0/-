@@ -1,5 +1,9 @@
 <header class="imege">
-  <h1>SHIZUOKA-spot-</h1>
+  <h1 class="title-link">
+    <%= link_to spots_path do %>
+      SHIZUOKA-spot-
+    <% end %>
+  </h1>
   <nav>
     <ul>
       <% if user_signed_in? %><%# もし会員がﾛｸﾞｲﾝしていれば %>

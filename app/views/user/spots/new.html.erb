@@ -8,27 +8,28 @@
     <% end %>
   <% end %>
 </div>
+
 <%= form_with(model:@spot, local: true) do |f| %>
   <div class="container">
     <div class="row">
-      <div class="col-lg-4"></div>
-      <div class="col-lg-6">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-7">
         <table>
           <tr>
             <th><%= f.label :spot_name %></th>
-            <td><%= f.text_field :spot_name %></td>
+            <td><%= f.text_field :spot_name, :size=>"40x1", placeholder: '(up to 20 characters)' %></td>
           </tr>
           <tr>
             <th><%= f.label :post_code %></th>
-            <td><%= f.text_field :post_code %></td>
+            <td><%= f.text_field :post_code, placeholder: '123-4567' %></td>
           </tr>
           <tr>
             <th><%= f.label :address %></th>
-            <td><%= f.text_field :address, class: 'from-control' %></td>
+            <td><%= f.text_field :address, :size=>"57x1", placeholder: '○○市○○1234-5', class: 'from-control' %></td>
           </tr>
            <tr>
             <th><%= f.label :spot_text %></th>
-            <td><%= f.text_area :spot_text %></td>
+            <td><%= f.text_area :spot_text, :size=>"60x7", placeholder:'(up to 200 characters)' %></td>
           </tr>
           <tr>
             <td>
@@ -44,12 +45,16 @@
           </tr>
           <tr>
             <th><%= f.label :phot %></th>
-            <td><%= f.file_field :spot_imgs, multiple: true %></td>
+            <td>
+              <%= f.label :spot_imgs, "photo Selection",class: "image_input_btn" %>
+              <%= f.file_field :spot_imgs, multiple: true, class: "image_form" %>
+            </td>
           </tr>
           <tr>
             <th><%= button_tag 'create<i class="fa fa-save"></i>'.html_safe, :type => "submit", :class =>"btn btn-outline-primary" %></th>
           </tr>
         </table>
+    　</div>
       <div class="col-lg-4"></div>
     </div>
   </div>

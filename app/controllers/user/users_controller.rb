@@ -4,7 +4,6 @@ before_action :authenticate_user!
     @user = current_user
     @spots = @user.spots.page(params[:page]).per(8)
     @spot = Spot.find(params[:id])
-    
   end
 
   def update
@@ -14,7 +13,7 @@ before_action :authenticate_user!
   end
 
   def unsubscribe
-    @user = User.find_by(params[:id])
+    @user = current_user
   end
 
   def withdraw
@@ -25,6 +24,7 @@ before_action :authenticate_user!
   end
 
   private
+  
   def user_params
     params.require(:user).permit(:name, :email, :admin)
   end

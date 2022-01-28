@@ -3,14 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .top-text {
-  position: absolute;  //テキストの配置を画像に被るようにする
-  z-index: 99; //テキストが画像より前に来る
+  position: absolute;   /*テキストの配置を画像に被るようにする */
+  z-index: 99;          /*テキストが画像より前に来る*/
   text-align: center;
   font-weight: 900;
   background-color: rgba(255,255,255,0.55);
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); /*配置*/
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   padding-bottom: 3%;

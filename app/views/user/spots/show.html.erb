@@ -31,7 +31,7 @@
         <%= link_to edit_spot_path(@spot), class: "btn btn-outline-secondary btn-sm" do %>
           edit<i class="fas fa-edit"></i>
         <% end %>
-        <%= link_to spot_path(@spot), method: :delete, "data-comfirm" => "本当に削除しますか",class: "btn btn-outline-danger btn-sm" do %>
+        <%= link_to spot_path(@spot), method: :delete, class: "btn btn-outline-danger btn-sm" do %>
           delete<i class="fas fa-trash-alt"></i>
         <% end %>
       <% end %>
@@ -48,8 +48,9 @@
           <%= link_to "delete", spot_comment_path(comment.spot, comment), method: :delete, class: "btn btn-outline-danger btn-sm" %>
         <% end %>
       <% end %>
+      
       <%= form_with(model:[@spot, @comment], local: true) do |f| %>
-        <%= f.text_area :comment,:size=>"60x3",placeholder: "comment here" %>
+        <%= f.text_area :comment,:size=>"60x3",placeholder: "comment here(must be at least 30 characters long.)" %>
         <%= button_tag 'enter'.html_safe, :type => "submit", :class =>"btn btn-outline-primary btn-sm" %>
       <% end %>
   </div>

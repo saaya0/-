@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #map{
-  height: 400px;
+  height: 380px;
   width: 80%;
   margin : 0 auto
 }
@@ -33,21 +33,64 @@ h3:after {
 
 .spot-add {
   text-align: right;
-  padding: 1%;
-}  //index
+  padding-right: 10%;
+}
 
 .object {
-  background: linear-gradient(transparent 70%, #c9ff93 70%);
+  background: linear-gradient(transparent 70%, #c9ff93 70%); /*下線 */
 }
 
 .spot-imgs {
   display: flex;
   flex-wrap: wrap;
-  
+  margin-top: 20px;
 }
 
 .pspot-img-box {
   width: 40%;
   text-align: center;
+  margin-bottom: 10px;
+}
+
+.spot_box {
+  text-align: center;
+}
+
+.map-explain {
+  font-size: 15px;
+  text-align: center;
+}
+
+.image_input_btn{
+  display: block;
+  background-color: #6cbb5a;
+  width: 180px;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 10px;
+  padding-top: 2px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+}
+
+.image_input_btn:hover{
+
+  background-color: #009944;
+}
+
+.image_form{
+  display: none; /*写真選択ボタンを一つにする*/
+}
+
+.spot-img-list{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.spot-img-box {
+  width: 40%;
+  height: 190px;
   margin-bottom: 10px;
 }

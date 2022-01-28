@@ -4,13 +4,8 @@ class CreateSpots < ActiveRecord::Migration[5.2]
       t.string :spot_name,    null: false
       t.string :post_code,    null: false
       t.string :address,      null: false
-      t.string :business_day
-      t.string :business_hour
-      t.string :parking
       t.string :spot_text,    null: false
-      t.string :spot_img,     null: false
-      t.boolean 'whether_status', default: false, null: false
-      t.boolean 'genre_status', default: false, null: false
+      t.integer :user_id
       t.timestamps
     end
   end

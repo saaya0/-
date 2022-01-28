@@ -1,36 +1,68 @@
-<h4>投稿編集</h4>
-<%= form_with model:@spot, url:{action: "update"}, local:true do |f| %>
+<h2>SPOT EDIT</h2>
 
-  <li>
-    <%= f.label :観光地名 %>
-    <%= f.text_field :spot_name %>
-  </li>
-  <li>
-    <%= f.label :post_code %>
-    <%= f.text_field :post_code %>
-  </li>
-  <li>
-    <%= f.label :address %>
-    <%= f.text_field :address, class: 'from-control' %>
-  </li>
-  <li>
-    <%= f.label :spot_text %>
-    <%= f.text_area :spot_text %>
-  </li>
-  <li>
-    <%= f.label :観光地画像 %>
-    <%= f.attachment_field :spot_img %>
-  </li>
-  
-  <li>
-    <%= f.collection_check_boxes(:box_ids, Box.all, :id, :box_name) do |box| %>
-      <div class='form-check'>
-        <%= box.label class: 'form-check-label' do %>
-          <%= box.check_box class: 'form-check-input' %>
-          <%= box.text %>
-        <% end %>
-      </div>
+  <div class="alert">
+    <% if @spot.errors.any? %>
+      <%= @spot.errors.count %> errors<br>
+      <% @spot.errors.full_messages.each do |message| %>
+        ☆ <%= message %><br>
+      <% end %>
     <% end %>
-  </li>
-  <%= f.submit '保存' %>
-<% end %>
+  </div>
+
+  <%= form_with(model:@spot, local: true) do |f| %>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-6">
+          <table>
+            <tr>
+              <th><%= f.label :spot_name %></th>
+              <td><%= f.text_field :spot_name %></td>
+            </tr>
+            <tr>
+              <th><%= f.label :post_code %></th>
+              <td><%= f.text_field :post_code %></td>
+            </tr>
+            <tr>
+              <th><%= f.label :address %></th>
+              <td><%= f.text_field :address, class: 'from-control' %></td>
+            </tr>
+             <tr>
+              <th><%= f.label :spot_text %></th>
+              <td><%= f.text_area :spot_text %></td>
+            </tr>
+
+            <tr>
+              <td>
+                <%= f.collection_check_boxes(:box_ids, Box.all, :id, :box_name) do |box| %> <!-- 観光地のジャンル-->
+                  <div class='form-check'>
+                    <%= box.label class: 'form-check-label' do %>
+                      <%= box.check_box class: 'form-check-input' %>
+                      <%= box.text %>
+                    <% end %>
+                  </div>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <th><%= f.label :phot %></th>
+              <td>
+                <%= f.file_field :spot_imgs, multiple: true %>
+　                <%= f.label :spot_imgs, "登録" %>
+                  <% if @spot.spot_imgs.present? %>
+                    <p>※削除したい画像にチェックを入れてください</p>
+                    <% @spot.spot_imgs.each do |image| %>
+                      <%= f.check_box :image_ids, {multiple: true}, image.id, false %>
+                      <%= image_tag image, size: "100x100" %> <br>
+                    <% end %>
+                  <% end %>
+              </td>
+            </tr>
+            <tr>
+              <th><%= button_tag 'create<i class="fa fa-save"></i>'.html_safe, :type => "submit", :class =>"btn btn-outline-primary" %></th>
+            </tr>
+          </table>
+        <div class="col-lg-4"></div>
+      </div>
+    </div>
+  <% end %>

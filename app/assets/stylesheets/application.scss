@@ -113,6 +113,13 @@ li {
   color: #000000;
 }
 
+.success {
+  color: #7f7fff;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 1%;
+}
+
 .alert {
   color: #ff7f7f;
   text-align: center;
@@ -141,4 +148,8 @@ footer {
   margin-top: 30px;
   text-align: right;
   padding-right: 30px;
+}
+
+.pass-view {
+  background-color: red;
 }

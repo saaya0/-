@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   def index
     @user = current_user
     if current_user == @user || current_user.admin?
-      @users = User.all
+      @users = User.all.page(params[:page]).per(10)
     else
       redirect_to new_user_session_path
     end

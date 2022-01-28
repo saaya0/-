@@ -10,15 +10,15 @@
     <% end %>
   </div>
 
-  <%= form_tag({controller:"spots",action:"index"}, method: :get) do %>
+  <%= form_tag({controller:"spots",action:"index"}, method: :get, class: "spot_box") do %>
     <% Box.all.each do |b| %>
       <%= check_box :box_ids, b.box_name %><%= b.box_name %>
     <% end %>
-    <%= submit_tag '検索' %>
+    <%= button_tag 'Enter'.html_safe, :type => "submit", :class =>"btn btn-outline-secondary" %>
   <% end %>
 
-  <div id='map'></div>
-  <script> //グローバル変数がjsにまとめてしまうと、他と共有してしまう恐れがある。このぺージでしか使用しないようにするため、このままにしてある。
+  <div id='map'></div> <!--グローバル変数がjsにまとめてしまうと、他と共有してしまう恐れがある。このぺージでしか使用しないようにするため、このままにしてある。-->
+  <script> 
 
     let map;
     let marker = [];

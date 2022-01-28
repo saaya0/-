@@ -7,14 +7,15 @@
   z-index: 99; //テキストが画像より前に来る
   text-align: center;
   font-weight: 900;
-  background-color: rgba(255,255,255,0.71);
+  background-color: rgba(255,255,255,0.55);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   padding-bottom: 3%;
-  padding: 30px;
+  padding: 40px;
+  font-family:"Comic Sans MS", "ヒラギノ明朝 Pro W3", serif;
 }
 
 .slick-view {
@@ -33,7 +34,7 @@
   display: flex;
   align-items: center;
   position: relative;
-display: block;
+  display: block;
   margin: auto;
   align-items: center;
   justify-content: center;
@@ -45,12 +46,10 @@ display: block;
   max-height: 100%;
   max-width: 100%;
   margin: auto;
-
 }
 
 .slick-slider {
   display: flex;
-
   align-items: center;
   justify-content: center;
 }

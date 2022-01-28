@@ -36,6 +36,7 @@ before_action :authenticate_user!,except: [:index]
 
 
   def show
+
     @spot = Spot.find(params[:id])
     @comment = Comment.new
   end
@@ -46,7 +47,13 @@ before_action :authenticate_user!,except: [:index]
 
   def update
     @spot = Spot.find(params[:id])
-    @spot.update!(spot_params)
+    if params[:spot][:spot_img_ids] #選択した画像の削除
+      params[:spot][:spot_img_ids].each do |image_id|
+        image = @post.images.find(image_id)
+        image.purge
+      end
+    end
+    @spot.update_attributes(spot_params)
     redirect_to spot_path(@spot)
   end
 
@@ -71,7 +78,7 @@ before_action :authenticate_user!,except: [:index]
   private
 
   def spot_params
-    params.require(:spot).permit(:spot_name, :post_code, :address, :spot_text, :spot_img, :latitude, :longitude, box_ids: [])
+    params.require(:spot).permit(:spot_name, :post_code, :address, :spot_text, :latitude, :longitude, box_ids: [], spot_imgs: [], spotimgs_attachments_attributes: [ :id, :_destroy ])
   end
 
 end

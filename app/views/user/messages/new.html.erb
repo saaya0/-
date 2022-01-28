@@ -3,27 +3,23 @@
 
     <% if @message.errors.any? %>
       <div class="alert">
-      <ul>
         <% @message.errors.full_messages.each do |message| %>
-          <li><%= message %></li><br>
+          <%= message %><br>
         <% end %>
-      </ul>
-    </div>
+      </div>
     <% end %>
 
   <%= form_with model: @message, local: true, url: {action: :confirm} do |f| %>
-    <div>
-      <%= f.label :name, 'name' %><br>
-      <p><%= f.text_field :name, autofocus: true, :size=>"40x1", placeholder:'Taro YamadaYamada（up to 20 characters）' %></p>
-  　</div>
-  　<div>
-  　 <%= f.label :email, 'e-mail' %><br>
-  　 <p><%= f.text_field :email, :size=>"70x1", placeholder:'test@hoge.com' %></p>
-  　</div>
-  　<div>
-  　  <%= f.label :message, 'message' %><br>
-  　  <%= f.text_area :message, :size=>"100x15", placeholder:'must be at least 10 characters long.' %>
-　  </div>
+
+    <%= f.label :name, '[name]' %>
+    <p><%= f.text_field :name, autofocus: true, :size=>"40x1", placeholder:'Taro YamadaYamada（up to 20 characters）' %></p>
+
+  　<%= f.label :email, '[e-mail]' %>
+  　<p><%= f.text_field :email, :size=>"70x1", placeholder:'test@hoge.com' %></p>
+
+  　<%= f.label :message, '[message]' %>
+  　<p><%= f.text_area :message, :size=>"100x15", placeholder:'must be at least 10 characters long.' %></p>
+
 　  <%= button_tag 'to confirmation screen<i class="fas fa-arrow-right"></i>'.html_safe, :type => "submit", :class =>"btn btn-outline-primary" %>
   <% end %>
 </div>

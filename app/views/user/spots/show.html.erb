@@ -8,7 +8,14 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-6">
-      <%= attachment_image_tag @spot, :spot_img, :fill, 460, 400, format: 'jpeg' %>
+      <div class="spot-imgs">
+        <% @spot.spot_imgs.each do |image| %>
+          <div class="pspot-img-box">
+            <%= image_tag image.variant(resize: "200x200") %>
+          </div>
+          
+        <% end %>
+      </div>
     </div>
     <div class="col-lg-6">
       <h5 class="object">spot address</h5>
@@ -40,12 +47,10 @@
         <% if comment.user == current_user %>
           <%= link_to "delete", spot_comment_path(comment.spot, comment), method: :delete, class: "btn btn-outline-danger btn-sm" %>
         <% end %>
-<% end %>
-<%= form_with(model:[@spot, @comment], local: true) do |f| %>
-  <%= f.text_area :comment,:size=>"60x3",placeholder: "comment here" %>
-  <%= button_tag 'enter'.html_safe, :type => "submit", :class =>"btn btn-outline-primary btn-sm" %>
-<% end %>
-
-    </div>
+      <% end %>
+      <%= form_with(model:[@spot, @comment], local: true) do |f| %>
+        <%= f.text_area :comment,:size=>"60x3",placeholder: "comment here" %>
+        <%= button_tag 'enter'.html_safe, :type => "submit", :class =>"btn btn-outline-primary btn-sm" %>
+      <% end %>
   </div>
 </div>

@@ -1,13 +1,13 @@
 <h2>NEW SPOT</h2>
 
-  <div class="alert">
-    <% if @spot.errors.any? %>
-      <%= @spot.errors.count %> errors<br>
-      <% @spot.errors.full_messages.each do |message| %>
-       ☆ <%= message %><br>
-      <% end %>
+<div class="alert">
+  <% if @spot.errors.any? %>
+    <%= @spot.errors.count %> errors<br>
+    <% @spot.errors.full_messages.each do |message| %>
+      ☆ <%= message %><br>
     <% end %>
-  </div>
+  <% end %>
+</div>
 <%= form_with(model:@spot, local: true) do |f| %>
   <div class="container">
     <div class="row">
@@ -31,33 +31,26 @@
             <td><%= f.text_area :spot_text %></td>
           </tr>
           <tr>
-            <th><%= f.label :phot %></th>
-            <td><%= f.attachment_field :spot_img %></td>
+            <td>
+              <%= f.collection_check_boxes(:box_ids, Box.all, :id, :box_name) do |box| %> <!-- 観光地のジャンル-->
+                <div class='form-check'>
+                  <%= box.label class: 'form-check-label' do %>
+                    <%= box.check_box class: 'form-check-input' %>
+                    <%= box.text %>
+                  <% end %>
+                </div>
+              <% end %>
+            </td>
           </tr>
-        <tr>
-          <td>
-            <%= f.collection_check_boxes(:box_ids, Box.all, :id, :box_name) do |box| %>
-              <div class='form-check'>
-                <%= box.label class: 'form-check-label' do %>
-                  <%= box.check_box class: 'form-check-input' %>
-                  <%= box.text %>
-                <% end %>
-              </div>
-            <% end %>
-          </td>
-        </tr>
-
+          <tr>
+            <th><%= f.label :phot %></th>
+            <td><%= f.file_field :spot_imgs, multiple: true %></td>
+          </tr>
           <tr>
             <th><%= button_tag 'create<i class="fa fa-save"></i>'.html_safe, :type => "submit", :class =>"btn btn-outline-primary" %></th>
           </tr>
-      </div>
-    </th>
-  </tr>
         </table>
-      </div>
       <div class="col-lg-4"></div>
     </div>
   </div>
-
-
 <% end %>

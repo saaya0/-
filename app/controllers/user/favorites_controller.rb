@@ -5,20 +5,10 @@ class User::FavoritesController < ApplicationController
   def create
     @user = @spot.user
     current_user.favorite(@spot)
-    # respond_to do |format|
-    #   format.html { redirect_to request.referrer || root_url }
-    #   format.js
-    #   response["Content-Type"]="application/javascript"
-    # end
   end
 
   def destroy
     current_user.favorites.find_by(spot_id: @spot.id).destroy
-    # respond_to do |format|
-    #   format.html { redirect_to request.referrer || root_url }
-    #   format.js
-    #   response["Content-Type"]="application/javascript"
-    # end
   end
 
 

@@ -13,7 +13,6 @@ class Admin::UsersController < ApplicationController
     @users = User.all
     user = User.find(params[:id])
     user.update(is_valid: true)
-    reset_session
     redirect_to users_path
   end
 end

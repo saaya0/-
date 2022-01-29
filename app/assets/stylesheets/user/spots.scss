@@ -94,3 +94,28 @@ h3:after {
   height: 190px;
   margin-bottom: 10px;
 }
+
+.genre-tag {
+  position: relative;
+  display: inline-block;
+  padding: 0.2rem 0.5rem 0.2rem 1.6rem;
+  color: #fff;
+  border-radius: 100vh 0 0 100vh;
+  background: #c49a6a;
+}
+
+.genre-tag:before {
+  width: 6px;
+  height: 6px;
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 10px;
+  content: '';
+  border-radius: 50%;
+  background: #fff;
+}
+
+.new-take-care {
+  color: #ff7f7f;
+  text-align: center;
+}

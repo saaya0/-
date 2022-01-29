@@ -23,10 +23,14 @@
       <p>　　<%= @spot.address %></p>
       <h5 class="object">explain</h5>
       <p>　<%= @spot.spot_text %></p>
-      <% @spot.boxs.each do |box| %>
-        <span><%= box.box_name %></span>
+     
+       <% @spot.boxs.each do |box| %>
+       <div class="genre-tag">
+        <%= box.box_name %>
+        </div> 
       <% end %>
 
+     
       <% if @spot.user == current_user %>
         <%= link_to edit_spot_path(@spot), class: "btn btn-outline-secondary btn-sm" do %>
           edit<i class="fas fa-edit"></i>

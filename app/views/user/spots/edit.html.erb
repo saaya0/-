@@ -48,23 +48,23 @@
               <td>
                 <%= f.label :spot_imgs, "photo Selection",class: "image_input_btn" %>
                 <%= f.file_field :spot_imgs, multiple: true, class: "image_form" %>
-                
-　                <%= f.label :spot_imgs, "[Registration Photo]" %>
-                  <% if @spot.spot_imgs.present? %>
-                    <p>※please check the image you want to delete</p>
-                     <div class="spot-img-list">
+
+　              <%= f.label :spot_imgs, "[Registration Photo]" %>
+                <% if @spot.spot_imgs.present? %>
+                  <p>※please check the image you want to delete</p>
+                  <div class="spot-img-list">
                     <% @spot.spot_imgs.each do |image| %>
-                     <div class="spot-img-box">
-                      <%= f.check_box :image_ids, {multiple: true}, image.id, false %>
-                      <%= image_tag image, size: "150x150" %> <br>
+                      <div class="spot-img-box">
+                        <%= f.check_box :image_ids, {multiple: true}, image.id, false %>
+                        <%= image_tag image, size: "150x150" %> <br>
                       </div>
                     <% end %>
-                    </div>
-                  <% end %>
+                  </div>
+                <% end %>
               </td>
             </tr>
             <tr>
-              <th><%= button_tag 'create<i class="fa fa-save"></i>'.html_safe, :type => "submit", :class =>"btn btn-outline-primary" %></th>
+              <th><%= button_tag 'update<i class="fa fa-save"></i>'.html_safe, :type => "submit", :class =>"btn btn-outline-primary" %></th>
             </tr>
           </table>
         </div>

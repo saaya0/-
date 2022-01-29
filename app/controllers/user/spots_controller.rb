@@ -6,7 +6,7 @@ before_action :authenticate_user!,except: [:index]
     @genres = [[0, "play"], [1, "eat"], [2, "viewing"]]
   end
 
-  def creat
+  def create
     converted_params = spot_params.merge({user_id: current_user.id}) #観光地登録者のユーザー登録
     @spot = Spot.new(converted_params)
     if @spot.save

@@ -24,13 +24,19 @@ before_action :authenticate_user!,except: [:index]
     @spots = Spot.all
     if params[:box_ids]
       @spots = []
-      params[:box_ids].each do |key, value|
-        if value == "1"
-          box_spots = Box.find_by(box_name: key).spots
-          @spots = @spots.empty? ? box_spots : @spots & box_spots
+
+      if params[:box_ids].values.any?("1")
+        params[:box_ids].each do |key, value|
+          if value == "1"
+            box_spots = Box.find_by(box_name: key).spots
+            @spots = @spots.empty? ? box_spots : @spots & box_spots
+          end
         end
+      else
+       @spots = Spot.all
       end
     end
+    Rails.logger.info(@spots.map(&:id))
   end
 
   def show
@@ -50,8 +56,11 @@ before_action :authenticate_user!,except: [:index]
         image.purge
       end
     end
-    @spot.update_attributes(spot_params)
-    redirect_to spot_path(@spot)
+    if @spot.update_attributes(spot_params)
+      redirect_to spot_path(@spot)
+    else
+      render :edit
+    end
   end
 
   def destroy

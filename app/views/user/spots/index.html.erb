@@ -2,7 +2,7 @@
   <h2>MAP</h2>
 
   <div class="success"><%= flash[:success] %></div>
-  
+
   <div class="row">
     <div class="col-lg-3"></div>
     <div class="col-lg-6">
@@ -28,10 +28,10 @@
   <div id='map'></div> <!--グローバル変数がjsにまとめてしまうと、他と共有してしまう恐れがある。このぺージでしか使用しないようにするため、このままにしてある。-->
   <script>
 
-    let map;
-    let marker = [];
-    let infoWindow = [];
-    let count = 0;
+    var map;
+    var marker = [];
+    var infoWindow = [];
+    var count = 0;
 
     function initMap(){
 

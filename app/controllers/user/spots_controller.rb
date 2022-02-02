@@ -24,7 +24,7 @@ before_action :authenticate_user!,except: [:index]
     @spots = Spot.all
     if params[:box_ids]
       @spots = []
-
+      
       if params[:box_ids].values.any?("1")
         params[:box_ids].each do |key, value|
           if value == "1"
@@ -52,7 +52,7 @@ before_action :authenticate_user!,except: [:index]
     @spot = Spot.find(params[:id])
     if params[:spot][:image_ids] #選択した画像の削除
       params[:spot][:image_ids].each do |image_id|
-        image = @spot.spot_imgs.find(image_id)
+        image = @spot.images.find(image_id)
         image.purge
       end
     end
@@ -81,6 +81,6 @@ before_action :authenticate_user!,except: [:index]
   private
 
   def spot_params
-    params.require(:spot).permit(:spot_name, :post_code, :address, :spot_text, :latitude, :longitude, box_ids: [], spot_imgs: [], spotimgs_attachments_attributes: [ :id, :_destroy ])
+    params.require(:spot).permit(:spot_name, :post_code, :address, :spot_text, :latitude, :longitude, box_ids: [], images: [], spotimgs_attachments_attributes: [ :id, :_destroy ])
   end
 end

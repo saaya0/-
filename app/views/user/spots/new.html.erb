@@ -1,6 +1,6 @@
 <h2>NEW SPOT</h2>
 
-<p class="new-take-care">※can't put in  same tourist spot</p>
+<p class="new-take-care">☆can't put in same spot</p>
 
 <div class="alert">
   <% if @spot.errors.any? %>
@@ -48,8 +48,8 @@
           <tr>
             <th><%= f.label :phot %></th>
             <td>
-              <%= f.label :spot_imgs, "photo Selection",class: "image_input_btn" %>
-              <%= f.file_field :spot_imgs, multiple: true, class: "image_form" %>
+              <%= f.label :images, "photo Selection",class: "image_input_btn" %>
+              <%= f.file_field :images, multiple: true, class: "image_form" %>
             </td>
           </tr>
           <tr>

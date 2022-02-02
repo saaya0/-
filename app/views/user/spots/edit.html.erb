@@ -46,14 +46,14 @@
             <tr>
               <th> </th>
               <td>
-                <%= f.label :spot_imgs, "photo Selection",class: "image_input_btn" %>
-                <%= f.file_field :spot_imgs, multiple: true, class: "image_form" %>
+                <%= f.label :images, "photo Selection",class: "image_input_btn" %>
+                <%= f.file_field :images, multiple: true, class: "image_form" %>
 
-　              <%= f.label :spot_imgs, "[Registration Photo]" %>
-                <% if @spot.spot_imgs.present? %>
+　              <%= f.label :images, "[Registration Photo]" %>
+                <% if @spot.images.present? %>
                   <p>※please check the image you want to delete</p>
                   <div class="spot-img-list">
-                    <% @spot.spot_imgs.each do |image| %>
+                    <% @spot.images.each do |image| %>
                       <div class="spot-img-box">
                         <%= f.check_box :image_ids, {multiple: true}, image.id, false %>
                         <%= image_tag image, size: "150x150" %> <br>

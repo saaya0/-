@@ -25,7 +25,7 @@
     <% @spots.each do |spot| %>
       <div class="spot-box">
         <%= link_to spot_path(spot) do %>
-        <%= image_tag spot.spot_imgs.first.variant(resize: "150x150") %><br>
+        <%= image_tag spot.images.first.variant(resize: "150x150") %><br>
           <h9><%= spot.spot_name %></h9>
         <% end %>
       </div>

@@ -7,30 +7,31 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-6">
-      <div class="spot-imgs">
-        <% @spot.images.each do |image| %>
-          <div class="pspot-img-box">
-            <%= image_tag image.variant(resize: "200x200") %>
+    <div class="col-lg-7">
+      <div class="show-imgs">
+        <% @images.each do |image| %>
+          <div class="show-img">
+            <%= image_tag image.variant(resize: "250x200") %>
           </div>
-          
         <% end %>
       </div>
+      <%= paginate @images %>
+
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-5">
       <h5 class="object">spot address</h5>
       <p>　<%= @spot.post_code %></p>
       <p>　　<%= @spot.address %></p>
       <h5 class="object">explain</h5>
       <p>　<%= @spot.spot_text %></p>
-     
+
        <% @spot.boxs.each do |box| %>
        <div class="genre-tag">
         <%= box.box_name %>
-        </div> 
+        </div>
       <% end %>
 
-     
+
       <% if @spot.user == current_user %>
         <%= link_to edit_spot_path(@spot), class: "btn btn-outline-secondary btn-sm" do %>
           edit<i class="fas fa-edit"></i>
@@ -52,7 +53,7 @@
           <%= link_to "delete", spot_comment_path(comment.spot, comment), method: :delete, class: "btn btn-outline-danger btn-sm" %>
         <% end %>
       <% end %>
-      
+
       <%= form_with(model:[@spot, @comment], local: true) do |f| %>
         <%= f.text_area :comment,:size=>"60x3",placeholder: "comment here(must be at least 30 characters long.)" %>
         <%= button_tag 'enter'.html_safe, :type => "submit", :class =>"btn btn-outline-primary btn-sm" %>

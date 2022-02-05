@@ -40,16 +40,27 @@ h3:after {
   background: linear-gradient(transparent 70%, #c9ff93 70%); /*下線 */
 }
 
-.spot-imgs {
+// .spot-imgs {
+//   display: flex;
+//   flex-wrap: wrap;
+//   margin-top: 20px;
+// }
+
+// .pspot-img-box {
+//   width: 40%;
+//   text-align: center;
+//   margin: 10px auto;
+// }
+
+.show-imgs {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 20px;
 }
 
-.pspot-img-box {
-  width: 40%;
+.show-img {
+  width: 50%;
   text-align: center;
-  margin-bottom: 10px;
+  padding-top: 10px;
 }
 
 .spot_box {
@@ -92,7 +103,7 @@ h3:after {
 .spot-img-box {
   width: 40%;
   height: 190px;
-  margin-bottom: 10px;
+  margin: 10px auto;
 }
 
 .genre-tag {

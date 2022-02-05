@@ -11,6 +11,7 @@ before_action :authenticate_user!,except: [:index]
     @spot = Spot.new(converted_params)
     if @spot.save
       flash[:success] = "It was successful."
+      
       redirect_to spots_path
     else
       render :new
@@ -24,7 +25,7 @@ before_action :authenticate_user!,except: [:index]
     @spots = Spot.all
     if params[:box_ids]
       @spots = []
-      
+
       if params[:box_ids].values.any?("1")
         params[:box_ids].each do |key, value|
           if value == "1"
@@ -42,6 +43,7 @@ before_action :authenticate_user!,except: [:index]
   def show
     @spot = Spot.find(params[:id])
     @comment = Comment.new
+    @images = @spot.images.order("created_at DESC").page(params[:page]).per(4)
   end
 
   def edit

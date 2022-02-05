@@ -2,18 +2,19 @@
 <div class="top">
   <div class="top-text">
     <h1 class="title-name">
-      SHIZUOKA-spot-
+      SHIZUOKA<br>-spot-
     </h1>
 
     <div class="success"><%= flash[:success] %></div>
-    <div>
+    <div class="top-link">
       <%= link_to "SIGN UP", new_user_registration_path %>
     </div>
-    <div>
+    <div class="top-link">
       <%= link_to "SIGN IN", new_user_session_path %>
     </div>
-    <div>
-      For those who use without logging in, <%= link_to "click here", spots_path %>
+    <div class="top-link">
+      For those who use without logging in, <br>
+      <%= link_to "click here", spots_path %>
     </div>
   </div>
       <!--スライドショー-->

@@ -5,7 +5,7 @@
       <% @favorite_list.each do |spot| %>
         <div class="spot-box">
           <%= link_to spot_path(spot) do %>
-            <%= image_tag spot.spot_imgs.first.variant(resize: "150x150") %><br>
+            <%= image_tag spot.images.first.variant(resize: "150x150") %><br>
             <%= spot.spot_name %>
           <% end %>
         </div>

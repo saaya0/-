@@ -3,7 +3,7 @@ class Spot < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :spot_box_relations, dependent: :destroy
   has_many :boxs, through: :spot_box_relations, dependent: :destroy
-
+  has_many :tags, dependent: :destroy
   belongs_to :user
 
   has_many_attached :images
@@ -16,13 +16,13 @@ class Spot < ApplicationRecord
   validates :post_code, presence: true
   validates :address, presence: true  #空ではいけない
   validates :address, uniqueness: true, on: :create  #重複してはいけない
-  validate :image_type, :image_size, :image_length  #画像の種類・ファイルのサイズ・枚数制限
+  validate :image_type, :image_size  #画像の種類・ファイルのサイズ制限
 
   private
 
   def image_type
     images.each do |image|
-      if !image.blob.content_type.in?(%('image/jpeg image/png'))
+      unless image.blob.content_type.in?(%('image/jpeg image/png'))
         image.purge
         errors.add(:images, ':please upload in png or jpeg format')
       end
@@ -35,13 +35,6 @@ class Spot < ApplicationRecord
         image.purge
         errors.add(:images, ":please keep one file within 5mb")
       end
-    end
-  end
-
-  def image_length
-    if images.length > 4
-      images.purge
-      errors.add(:images, ":please make it to no more than 4 sheets.")
     end
   end
 end

@@ -54,10 +54,12 @@
                   <p>※please check the image you want to delete</p>
                   <div class="spot-img-list">
                     <% @spot.images.each do |image| %>
-                      <div class="spot-img-box">
-                        <%= f.check_box :image_ids, {multiple: true}, image.id, false %>
-                        <%= image_tag image, size: "150x150" %> <br>
-                      </div>
+                      <% if image.blob.content_type.in?(%('image/jpeg image/png')) %>
+                        <div>
+                          <%= f.check_box :image_ids, {multiple: true}, image.id, false %>
+                          <%= image_tag image, size: "150x150" %>
+                       </div>
+                      <% end %>
                     <% end %>
                   </div>
                 <% end %>

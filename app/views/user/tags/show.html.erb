@@ -1,0 +1,12 @@
+<h2>Tag【<%= @tag.name %>】</h2>
+<div class="spot-list">
+  <% @spots.each do |spot| %>
+    <div class="spot-box">
+      <%= link_to spot_path(spot) do %>
+        <%= image_tag spot.images.first.variant(resize: "150x150") %><br>
+        <%= spot.spot_name %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<div><%= paginate @spots %></div>

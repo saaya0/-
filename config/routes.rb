@@ -20,7 +20,6 @@ Rails.application.routes.draw do
 
     scope module: :user do
       get 'spots/favorite' => 'spots#favorite'
-      get 'spots/sarch' => 'spots#sarch'
       get   'users/:id/unsubscribe' => 'users#unsubscribe', as: 'confirm_unsubscribe'
       patch 'users/:id/withdraw' => 'users#withdraw', as: 'withdraw_user'
       put   'withdraw/:id' => 'users#withdraw'
@@ -41,9 +40,12 @@ Rails.application.routes.draw do
         end
       end
 
+      resources :tags, only: [:show]
+
+
     end
 
-    
+
 
 
 

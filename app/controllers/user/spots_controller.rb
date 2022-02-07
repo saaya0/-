@@ -11,7 +11,12 @@ before_action :authenticate_user!,except: [:index]
     @spot = Spot.new(converted_params)
     if @spot.save
       flash[:success] = "It was successful."
-      
+      results = Language.get_data(spot_params[:spot_text])
+      tag_list = [] #["桜","梅","さわやか"]
+      results.each do |result|
+        tag_list.push(result["name"]) #タグをtag_listに追加する
+      end
+      @spot.save_tag(tag_list)
       redirect_to spots_path
     else
       render :new
@@ -59,6 +64,12 @@ before_action :authenticate_user!,except: [:index]
       end
     end
     if @spot.update_attributes(spot_params)
+      results = Language.get_data(spot_params[:spot_text])
+      tag_list = []
+      results.each do |result|
+        tag_list.push(result["name"]) #タグをtag_listに追加する
+      end
+      @spot.save_tag(tag_list)
       redirect_to spot_path(@spot)
     else
       render :edit
@@ -75,10 +86,6 @@ before_action :authenticate_user!,except: [:index]
     favorites = Favorite.where(user_id: current_user.id).pluck(:spot_id)
     @favorite_list = Spot.find(favorites)
   end
-
-  def sarch
-  end
-
 
   private
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_03_104246) do
+ActiveRecord::Schema.define(version: 2022_02_06_061226) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -81,6 +81,13 @@ ActiveRecord::Schema.define(version: 2022_02_03_104246) do
     t.datetime "updated_at", null: false
     t.index ["box_id"], name: "index_spot_box_relations_on_box_id"
     t.index ["spot_id"], name: "index_spot_box_relations_on_spot_id"
+  end
+
+  create_table "spot_tag_relations", force: :cascade do |t|
+    t.integer "spot_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "spots", force: :cascade do |t|

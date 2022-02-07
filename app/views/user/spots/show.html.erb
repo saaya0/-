@@ -25,11 +25,16 @@
       <h5 class="object">explain</h5>
       <p>　<%= @spot.spot_text %></p>
 
-       <% @spot.boxs.each do |box| %>
-       <div class="genre-tag">
-        <%= box.box_name %>
+      <% @spot.boxs.each do |box| %>
+        <div class="genre-tag">
+          <%= box.box_name %>
         </div>
       <% end %>
+
+
+        <% @spot.tags.each do |tag| %>
+          <%= link_to tag.name, tag_path(tag.id) %>
+        <% end %>
 
 
       <% if @spot.user == current_user %>

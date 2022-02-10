@@ -40,18 +40,6 @@ h3:after {
   background: linear-gradient(transparent 70%, #c9ff93 70%); /*下線 */
 }
 
-// .spot-imgs {
-//   display: flex;
-//   flex-wrap: wrap;
-//   margin-top: 20px;
-// }
-
-// .pspot-img-box {
-//   width: 40%;
-//   text-align: center;
-//   margin: 10px auto;
-// }
-
 .show-imgs {
   display: flex;
   flex-wrap: wrap;
@@ -124,5 +112,9 @@ h3:after {
 
 .new-take-care {
   color: #ff7f7f;
+  text-align: center;
+}
+
+.spot_box {
   text-align: center;
 }

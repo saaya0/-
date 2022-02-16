@@ -8,9 +8,9 @@
     <div class="col-lg-6">
       <%= form_tag({controller:"spots",action:"index"}, method: :get, class: "spot_box") do %>　<!--ジャンルチェックボックス-->
         <% Box.all.each do |b| %>
-          <%= check_box :box_ids, b.box_name %><%= b.box_name %>
+          <%= check_box :box_ids, b.box_name, class:"check_box" %><%= b.box_name %>
         <% end %>
-        <%= button_tag 'Enter'.html_safe, :type => "submit", :class =>"btn btn-outline-secondary btn-sm" %>
+        <%= button_tag 'Enter'.html_safe, :type => "submit", :class =>"btn btn-outline-secondary" %>
       <% end %>
       <div class="map-explain">(Let's decide the genre and search!)</div>
     </div>

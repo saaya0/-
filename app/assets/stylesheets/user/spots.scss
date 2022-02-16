@@ -118,3 +118,43 @@ h3:after {
 .spot_box {
   text-align: center;
 }
+
+
+@media screen and (max-width: 1024px) { //responsive
+  #map {
+    height: 1000px;
+  }
+
+  .check_box {
+    transform: scale(1.8);
+    margin-right: 5px;
+  }
+
+  .spot_box {
+    font-size: 40px;
+  }
+
+  .form-check-input {
+    transform: scale(2.2);
+    margin-right: 5px;
+  }
+
+  .form-check {
+    font-size: 30px;
+  }
+
+  .btn {
+    height: 50px;
+    width: 210px;
+    font-size: 28px !important;
+  }
+
+  th {
+    font-size: 30px;
+  }
+  
+  .menu-link a{
+    font-size: 60px;
+  } 
+
+}

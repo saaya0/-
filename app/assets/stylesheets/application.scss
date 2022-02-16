@@ -166,3 +166,18 @@ footer {
   text-align: right;
   padding-right: 30px;
 }
+
+@media screen and (max-width: 1024px) { //responsive
+
+  header {
+    height: 140px;
+  }
+
+  .title-link {
+    font-size: 40px;
+  }
+
+  .name-link a { 
+    font-size: 25px !important;
+  }
+}

@@ -32,16 +32,16 @@
       <% end %>
 
 
-        <% @spot.tags.each do |tag| %>
-          <%= link_to tag.name, tag_path(tag.id) %>
-        <% end %>
-
+      <% @spot.tags.each do |tag| %>
+        <%= link_to tag.name, tag_path(tag.id) %>
+      <% end %>
+      <br>
 
       <% if @spot.user == current_user %>
-        <%= link_to edit_spot_path(@spot), class: "btn btn-outline-secondary btn-sm" do %>
+        <%= link_to edit_spot_path(@spot), class: "show-btn btn btn-outline-secondary btn-sm" do %>
           edit<i class="fas fa-edit"></i>
         <% end %>
-        <%= link_to spot_path(@spot), method: :delete, class: "btn btn-outline-danger btn-sm" do %>
+        <%= link_to spot_path(@spot), method: :delete, class: "show-btn btn btn-outline-danger btn-sm" do %>
           delete<i class="fas fa-trash-alt"></i>
         <% end %>
       <% end %>

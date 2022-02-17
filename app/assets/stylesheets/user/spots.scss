@@ -143,18 +143,27 @@ h3:after {
     font-size: 30px;
   }
 
-  .btn {
-    height: 50px;
-    width: 210px;
-    font-size: 28px !important;
-  }
-
   th {
     font-size: 30px;
   }
-  
-  .menu-link a{
-    font-size: 60px;
-  } 
 
+  .menu-link a {
+    font-size: 60px;
+  }
+  
+  .info-text {
+    font-size: 20px;
+  }
+  
+  .index-btn {
+    height: 50px;
+    width: 150px;
+    font-size: 25px !important;
+  }
+
+  .show-btn {
+    height: 40px;
+    width: 120px;
+    font-size: 20px !important;
+  }
 }
